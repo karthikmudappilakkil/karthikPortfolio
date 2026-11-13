@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #18181B;
+  }
+
+  body {
+    background-color: #F8F9FA;
+    color: #18181B;
+    overflow-x: hidden;
+  }
+}
+
+/* Neo-Brutalist Utility Classes */
+@layer components {
+  .brutal-card {
+    @apply bg-surface
+      border-[1.5px]
+      border-charcoal
+      shadow-brutal
+      rounded-[8px]
+      transition-all
+      duration-150;
+  }
+
+  .brutal-card-hover {
+    @apply hover:-translate-x-[1px]
+      hover:-translate-y-[1px]
+      hover:shadow-brutal-lg
+      active:translate-x-[2px]
+      active:translate-y-[2px]
+      active:shadow-brutal-hover;
+  }
+
+  .brutal-btn {
+    @apply inline-flex
+      items-center
+      justify-center
+      font-medium
+      border-[1.5px]
+      border-charcoal
+      shadow-brutal
+      rounded-[8px]
+      transition-all
+      duration-150
+      min-h-[44px]
+      min-w-[44px]
+      px-4
+      py-2
+      select-none;
+  }
+
+  .brutal-btn-primary {
+    @apply bg-accent
+      text-white
+      hover:bg-accent-hover
+      hover:-translate-x-[1px]
+      hover:-translate-y-[1px]
+      hover:shadow-brutal-lg
+      active:translate-x-[2px]
+      active:translate-y-[2px]
+      active:shadow-brutal-hover;
+  }
+
+  .brutal-btn-secondary {
+    @apply bg-surface
+      text-charcoal
+      hover:bg-slatePill
+      hover:-translate-x-[1px]
+      hover:-translate-y-[1px]
+      hover:shadow-brutal-lg
+      active:translate-x-[2px]
+      active:translate-y-[2px]
+      active:shadow-brutal-hover;
+  }
+
+  .brutal-pill {
+    @apply inline-flex
+      items-center
+      px-2.5
+      py-1
+      text-xs
+      font-mono
+      font-medium
+      bg-slatePill
+      text-charcoal
+      border-[1.5px]
+      border-charcoal/70
+      rounded-full;
+  }
+}
