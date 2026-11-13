@@ -1,13 +1,13 @@
 import {
   Code,
   GraduationCap,
-  Layers,
   Database,
   Smartphone,
   Wrench,
-  CheckCircle,
+  CheckCircle2,
 } from "lucide-react";
 import { Marquee } from "@/components/ui/marquee";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 export function TechStackAndEducationSection() {
   const stackCategories = [
@@ -82,46 +82,47 @@ export function TechStackAndEducationSection() {
       status: "Currently Pursuing",
       period: "Present",
       note:
-        "Advanced computing, distributed systems, software engineering " +
-        "methodologies, and mobile frameworks.",
+        "Advanced software architectures, distributed cloud computing, systems design, " +
+        "and mobile frameworks.",
     },
     {
       degree: "Bachelor of Science in Computer Science",
       institution:
-        "Little Flower Institute of Social Sciences and Health (LISSAH), " +
-        "University of Calicut",
+        "Little Flower Institute of Social Sciences and Health (LISSAH), University of Calicut",
       status: "Graduated",
       period: "2021 – 2024",
       note:
-        "Core foundations in algorithms, data structures, database " +
-        "management systems, and programming principles.",
+        "Rigorous foundations in data structures, algorithms, database systems, " +
+        "and object-oriented software engineering.",
     },
   ];
 
   return (
-    <section id="stack" className="py-12 scroll-mt-24">
+    <section id="stack" className="py-16 scroll-mt-24">
       {/* 12-Column Split Bento */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Technical Stack Section: lg:col-span-7 */}
         <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 brutal-pill mb-2">
-              <Layers className="w-3.5 h-3.5 text-accent" />
-              <span>Skill Matrix & Toolkit</span>
+            <div className="text-xs font-mono font-medium text-accent uppercase mb-2">
+              03 // Skills & Toolkit
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-charcoal mb-6">
-              Technical Stack
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 mb-6">
+              Technical Capabilities
             </h2>
 
-            {/* Marquee Ticker */}
-            <div className="brutal-card p-3 mb-6 bg-surface overflow-hidden">
-              <Marquee speed={24} direction="left">
+            {/* Linear-Style Marquee Ticker */}
+            <div
+              className="rounded-2xl border border-zinc-200/80 bg-zinc-50/50
+                p-3 mb-6 overflow-hidden"
+            >
+              <Marquee speed={26} direction="left">
                 {marqueeBadgesRow1.map((item) => (
                   <span
                     key={item}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 font-mono
-                      text-xs font-semibold bg-slatePill text-charcoal rounded-[6px]
-                      border border-charcoal/40"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 font-mono text-xs
+                      font-medium text-zinc-700 bg-white rounded-full border
+                      border-zinc-200/80 shadow-subtle"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     {item}
@@ -129,15 +130,15 @@ export function TechStackAndEducationSection() {
                 ))}
               </Marquee>
 
-              <Marquee speed={26} direction="right" className="pt-2">
+              <Marquee speed={28} direction="right" className="pt-2">
                 {marqueeBadgesRow2.map((item) => (
                   <span
                     key={item}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 font-mono
-                      text-xs font-semibold bg-slatePill text-charcoal rounded-[6px]
-                      border border-charcoal/40"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 font-mono text-xs
+                      font-medium text-zinc-700 bg-white rounded-full border
+                      border-zinc-200/80 shadow-subtle"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-charcoal" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
                     {item}
                   </span>
                 ))}
@@ -149,22 +150,17 @@ export function TechStackAndEducationSection() {
               {stackCategories.map((category) => {
                 const CategoryIcon = category.icon;
                 return (
-                  <div
+                  <SpotlightCard
                     key={category.title}
-                    className="brutal-card p-5 bg-white flex flex-col justify-between"
+                    className="p-5 flex flex-col justify-between"
+                    spotlightColor="rgba(37, 99, 235, 0.05)"
                   >
                     <div>
-                      <div
-                        className="flex items-center gap-2 pb-3
-                          border-b-[1.5px] border-charcoal/15"
-                      >
-                        <div
-                          className="p-1.5 rounded-[4px] bg-slatePill
-                            border border-charcoal/30 text-charcoal"
-                        >
+                      <div className="flex items-center gap-2 pb-3 border-b border-zinc-100">
+                        <div className="p-1.5 rounded-md bg-zinc-100 text-zinc-700">
                           <CategoryIcon className="w-4 h-4 text-accent" />
                         </div>
-                        <h3 className="font-bold text-sm text-charcoal">
+                        <h3 className="font-semibold text-sm text-zinc-950">
                           {category.title}
                         </h3>
                       </div>
@@ -173,15 +169,15 @@ export function TechStackAndEducationSection() {
                         {category.skills.map((skill) => (
                           <span
                             key={skill}
-                            className="px-2 py-1 text-xs font-mono font-medium
-                              bg-slatePill text-charcoal rounded-[4px] border border-charcoal/30"
+                            className="px-2 py-0.5 text-xs font-mono text-zinc-700 bg-zinc-50
+                              border border-zinc-200/80 rounded"
                           >
                             {skill}
                           </span>
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </SpotlightCard>
                 );
               })}
             </div>
@@ -189,76 +185,75 @@ export function TechStackAndEducationSection() {
         </div>
 
         {/* Education Section: lg:col-span-5 */}
-        <div
-          id="education"
-          className="lg:col-span-5 scroll-mt-24 flex flex-col justify-between"
-        >
+        <div id="education" className="lg:col-span-5 scroll-mt-24 flex flex-col justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 brutal-pill mb-2">
-              <GraduationCap className="w-3.5 h-3.5 text-accent" />
-              <span>Academic Foundations</span>
+            <div className="flex items-center gap-2 mb-2">
+              <GraduationCap className="w-4 h-4 text-accent" />
+              <div className="text-xs font-mono font-medium text-accent uppercase">
+                04 // Education
+              </div>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-charcoal mb-6">
-              Education
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 mb-6">
+              Academic Degrees
             </h2>
 
             <div className="space-y-4">
               {educations.map((edu, idx) => (
-                <div
+                <SpotlightCard
                   key={idx}
-                  className="brutal-card p-6 bg-white flex flex-col justify-between relative"
+                  className="p-6 flex flex-col justify-between"
+                  spotlightColor="rgba(24, 24, 27, 0.04)"
                 >
                   <div>
                     <div
                       className="flex items-center justify-between gap-2 pb-3
-                        border-b-[1.5px] border-charcoal/15"
+                        border-b border-zinc-100"
                     >
                       <span
-                        className="font-mono text-xs font-semibold uppercase tracking-wider
-                          text-accent bg-accent-light px-2.5 py-1 rounded-[4px]
-                          border border-accent/40"
+                        className="font-mono text-[11px] font-medium text-accent
+                          bg-accent/10 px-2.5 py-0.5 rounded-full"
                       >
                         {edu.status}
                       </span>
                       <span
-                        className="font-mono text-xs text-charcoal/70 bg-slatePill
-                          px-2 py-0.5 rounded-[4px] border border-charcoal/30"
+                        className="font-mono text-xs text-zinc-500 bg-zinc-100
+                          px-2.5 py-0.5 rounded-full"
                       >
                         {edu.period}
                       </span>
                     </div>
 
-                    <h3 className="mt-3 text-base sm:text-lg font-bold text-charcoal leading-snug">
+                    <h3 className="mt-3 text-base font-semibold text-zinc-950 leading-snug">
                       {edu.degree}
                     </h3>
 
-                    <p className="mt-1 text-xs sm:text-sm font-semibold text-charcoal/80">
+                    <p className="mt-1 text-xs sm:text-sm font-medium text-zinc-600">
                       {edu.institution}
                     </p>
 
-                    <p className="mt-3 text-xs sm:text-sm text-charcoal/75 leading-relaxed">
+                    <p className="mt-2.5 text-xs text-zinc-600 leading-relaxed font-normal">
                       {edu.note}
                     </p>
                   </div>
 
                   <div
-                    className="mt-4 pt-3 border-t-[1.5px] border-charcoal/15
-                      flex items-center gap-2 text-xs font-mono text-charcoal/70"
+                    className="mt-4 pt-3 border-t border-zinc-100 flex items-center
+                      gap-2 text-xs font-mono text-zinc-500"
                   >
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                     <span>Verified Academic Degree</span>
                   </div>
-                </div>
+                </SpotlightCard>
               ))}
 
-              {/* Quick Philosophy Bento Snippet */}
-              <div className="brutal-card p-5 bg-charcoal text-white">
-                <div className="text-xs font-mono uppercase tracking-wider text-slate-300 mb-1">
-                  Engineering Philosophy
+              {/* Engineering Standard Note */}
+              <div className="rounded-2xl border border-zinc-200/80 bg-zinc-50 p-5">
+                <div className="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-1">
+                  Engineering Standard
                 </div>
-                <p className="text-sm text-slate-100 leading-relaxed font-normal">
-                  "Writing clear, production-grade code that scales reliably,
-                  backed by solid computer science principles and active shipping."
+                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                  "Writing clear, production-grade code that scales reliably, backed by solid
+                  computer science principles and continuous shipping."
                 </p>
               </div>
             </div>

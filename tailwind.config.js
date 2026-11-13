@@ -7,25 +7,39 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#F8F9FA',
+        background: '#FFFFFF',
         surface: '#FFFFFF',
-        charcoal: '#18181B',
+        subtle: '#FAFAFA',
+        mutedSurface: '#F4F4F5',
+        zinc: {
+          950: '#09090B',
+          800: '#27272A',
+          700: '#3F3F46',
+          600: '#52525B',
+          500: '#71717A',
+          400: '#A1A1AA',
+          300: '#D4D4D8',
+          200: '#E4E4E7',
+          100: '#F4F4F5',
+          50: '#FAFAFA',
+        },
         accent: {
           DEFAULT: '#2563EB',
           hover: '#1D4ED8',
-          light: '#DBEAFE',
+          subtle: '#EFF6FF',
+          border: '#BFDBFE',
         },
-        slatePill: '#F1F5F9',
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       boxShadow: {
-        'brutal-sm': '2px 2px 0px #18181B',
-        'brutal': '3px 3px 0px #18181B',
-        'brutal-lg': '5px 5px 0px #18181B',
-        'brutal-hover': '1px 1px 0px #18181B',
+        'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.04)',
+        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04)',
+        'card-hover': '0 4px 16px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
+        'elevated': '0 8px 30px rgba(0, 0, 0, 0.08)',
+        'glow': '0 0 25px -5px rgba(37, 99, 235, 0.15)',
       },
       animation: {
         marquee: 'marquee var(--duration, 30s) linear infinite',
@@ -45,4 +59,3 @@ export default {
   },
   plugins: [],
 };
-

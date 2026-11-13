@@ -7,9 +7,12 @@ import { FooterSection } from "@/components/FooterSection";
 
 export function App() {
   return (
-    <div className="min-h-screen bg-background text-charcoal flex flex-col">
+    <div
+      className="min-h-screen bg-white text-zinc-950 flex flex-col
+        selection:bg-accent selection:text-white"
+    >
       <Navbar />
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6">
         <HeroSection />
         <ExperienceSection />
         <ProjectsSection />
@@ -21,4 +24,3 @@ export function App() {
 }
 
 export default App;
-

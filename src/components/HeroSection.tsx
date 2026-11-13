@@ -2,21 +2,17 @@ import {
   MapPin,
   Mail,
   Phone,
-  Sparkles,
   ArrowDownRight,
   Code2,
-  Cpu,
+  Terminal,
 } from "lucide-react";
 import { WordRotate } from "@/components/ui/word-rotate";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
+import { GridPattern } from "@/components/ui/grid-pattern";
 
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
       <path
         fillRule="evenodd"
         d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504"
@@ -72,28 +68,13 @@ function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14"
-      />
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14" />
       <path d="M24 5c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11z" />
-      <path
-        d="M6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764"
-      />
-      <path
-        d="M8.25 4.968c-.783 1.764-1.75 1.764-1.75 1.764zm13.5 12.268h-3v-5.604"
-      />
-      <path
-        d="M18.75 11.632c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765"
-      />
-      <path
-        d="M14.75 7.997c1.396-2.586 7-2.777 7 2.476v6.759z"
-      />
+      <path d="M6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764" />
+      <path d="M8.25 4.968c-.783 1.764-1.75 1.764-1.75 1.764zm13.5 12.268h-3v-5.604" />
+      <path d="M18.75 11.632c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765" />
+      <path d="M14.75 7.997c1.396-2.586 7-2.777 7 2.476v6.759z" />
     </svg>
   );
 }
@@ -107,184 +88,209 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="py-6 sm:py-10">
-      {/* 12-Column Neo-Brutalist Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
-        {/* Main Hero Card: lg:col-span-8 */}
-        <div className="lg:col-span-8 brutal-card p-6 sm:p-8 flex flex-col justify-between">
-          <div>
-            {/* Status Pill Badge */}
-            <div className="inline-flex items-center gap-2 brutal-pill mb-5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Available for New Projects & Roles</span>
-            </div>
+    <section className="relative pt-12 pb-16 overflow-hidden">
+      {/* Background Coordinate Grid with Radial Falloff */}
+      <div
+        className="absolute inset-0 -z-10 pointer-events-none
+          [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+      >
+        <GridPattern
+          width={40}
+          height={40}
+          className="stroke-zinc-200/60 [stroke-dasharray:3_3]"
+        />
+      </div>
 
-            {/* Main Headline */}
-            <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold
-                tracking-tight text-charcoal leading-[1.15]"
-            >
-              Hi, I'm{" "}
-              <span
-                className="text-accent underline decoration-charcoal
-                  decoration-wavy decoration-[2px] underline-offset-4"
-              >
-                Karthik M P
-              </span>
-              <br />
-              <span
-                className="text-2xl sm:text-3xl md:text-4xl font-bold
-                  text-charcoal/90 mt-2 block"
-              >
-                <WordRotate
-                  words={rotatingSpecialties}
-                  duration={2600}
-                  className="text-accent font-mono font-semibold"
-                />
-              </span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="mt-5 text-base sm:text-lg text-charcoal/80 max-w-2xl leading-relaxed">
-              Building scalable web products, real-time systems, and mobile apps with{" "}
-              <strong className="text-charcoal font-semibold">React</strong>,{" "}
-              <strong className="text-charcoal font-semibold">Node.js</strong>,{" "}
-              <strong className="text-charcoal font-semibold">Fastify</strong>, and{" "}
-              <strong className="text-charcoal font-semibold">React Native</strong>.
-            </p>
-          </div>
-
-          {/* Action CTAs & Social Links */}
-          <div
-            className="mt-8 pt-6 border-t-[1.5px] border-charcoal/15
-              flex flex-wrap items-center gap-3"
-          >
-            <a
-              href="#projects"
-              className="brutal-btn brutal-btn-primary text-xs font-mono
-                uppercase tracking-wider py-2.5 px-5 flex items-center gap-2"
-            >
-              <span>Explore Selected Work</span>
-              <ArrowDownRight className="w-4 h-4" />
-            </a>
-
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="brutal-btn brutal-btn-secondary text-xs font-mono
-                uppercase tracking-wider py-2.5 px-4 flex items-center gap-2"
-              aria-label="GitHub profile"
-            >
-              <GithubIcon className="w-4 h-4 text-charcoal" />
-              <span>GitHub</span>
-            </a>
-
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="brutal-btn brutal-btn-secondary text-xs font-mono
-                uppercase tracking-wider py-2.5 px-4 flex items-center gap-2"
-              aria-label="LinkedIn profile"
-            >
-              <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
-              <span>LinkedIn</span>
-            </a>
-          </div>
+      {/* Hero Header */}
+      <div className="max-w-3xl">
+        {/* Availability Eyebrow Pill */}
+        <div
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full
+            border border-zinc-200 bg-white/80 backdrop-blur-sm text-xs
+            font-mono text-zinc-600 mb-6 shadow-subtle"
+        >
+          <span className="relative flex h-2 w-2">
+            <span
+              className="animate-ping absolute inline-flex h-full w-full
+                rounded-full bg-emerald-400 opacity-75"
+            />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+          </span>
+          <span>Available for New Roles & Engineering Projects</span>
         </div>
 
-        {/* Quick Info & Focus Card: lg:col-span-4 */}
-        <div className="lg:col-span-4 brutal-card p-6 flex flex-col justify-between bg-surface">
+        {/* Main Heading */}
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight
+            text-zinc-950 leading-[1.1]"
+        >
+          Karthik M P
+          <span className="block text-2xl sm:text-3xl md:text-4xl font-normal text-zinc-500 mt-2">
+            <WordRotate
+              words={rotatingSpecialties}
+              duration={2600}
+              className="text-accent font-medium font-sans"
+            />
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-6 text-base sm:text-lg text-zinc-600 leading-relaxed font-normal">
+          Building scalable web products, real-time systems, and mobile apps with{" "}
+          <span className="text-zinc-900 font-medium">React</span>,{" "}
+          <span className="text-zinc-900 font-medium">Node.js</span>,{" "}
+          <span className="text-zinc-900 font-medium">Fastify</span>, and{" "}
+          <span className="text-zinc-900 font-medium">React Native</span>.
+        </p>
+
+        {/* Action CTAs */}
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href="#projects"
+            className="minimal-btn-primary group"
+          >
+            <span>View Selected Work</span>
+            <ArrowDownRight
+              className="w-4 h-4 opacity-70 group-hover:translate-y-0.5
+                transition-transform"
+            />
+          </a>
+
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="minimal-btn-secondary"
+            aria-label="GitHub profile"
+          >
+            <GithubIcon className="w-4 h-4 text-zinc-800" />
+            <span>GitHub</span>
+          </a>
+
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="minimal-btn-secondary"
+            aria-label="LinkedIn profile"
+          >
+            <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Bento Grid: Quick Info & Metrics (Linear Style) */}
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-4">
+        {/* Core Architecture Overview: md:col-span-8 */}
+        <SpotlightCard className="md:col-span-8 p-6 flex flex-col justify-between">
           <div>
-            <div
-              className="flex items-center justify-between pb-3
-                border-b-[1.5px] border-charcoal/20"
-            >
-              <span
-                className="text-xs font-mono font-bold uppercase
-                  tracking-wider text-charcoal/70"
-              >
-                Quick Info
+            <div className="flex items-center justify-between pb-3 border-b border-zinc-100">
+              <div className="flex items-center gap-2">
+                <Terminal className="w-4 h-4 text-zinc-500" />
+                <span className="text-xs font-mono font-medium uppercase text-zinc-500">
+                  Primary Stack & Paradigms
+                </span>
+              </div>
+              <span className="text-[11px] font-mono text-zinc-400">
+                Full Lifecycle Engineering
               </span>
-              <Sparkles className="w-4 h-4 text-accent" />
             </div>
 
-            <div className="mt-4 space-y-4">
-              {/* Location */}
-              <div className="flex items-start gap-3">
-                <div
-                  className="p-2 rounded-[6px] bg-slatePill border-[1.5px]
-                    border-charcoal/40 text-charcoal shrink-0"
-                >
-                  <MapPin className="w-4 h-4" />
-                </div>
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="p-3 rounded-xl bg-zinc-50/70 border border-zinc-100">
+                <div className="text-[11px] font-mono text-zinc-500">Frontend</div>
+                <div className="text-sm font-semibold text-zinc-900 mt-0.5">React.js</div>
+                <div className="text-xs text-zinc-500">Component Architecture</div>
+              </div>
+
+              <div className="p-3 rounded-xl bg-zinc-50/70 border border-zinc-100">
+                <div className="text-[11px] font-mono text-zinc-500">Backend</div>
+                <div className="text-sm font-semibold text-zinc-900 mt-0.5">Fastify & Node</div>
+                <div className="text-xs text-zinc-500">High-Throughput APIs</div>
+              </div>
+
+              <div className="p-3 rounded-xl bg-zinc-50/70 border border-zinc-100">
+                <div className="text-[11px] font-mono text-zinc-500">Mobile</div>
+                <div className="text-sm font-semibold text-zinc-900 mt-0.5">React Native</div>
+                <div className="text-xs text-zinc-500">Expo & Flutter</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 pt-3 border-t border-zinc-100 flex flex-wrap items-center gap-1.5">
+            {[
+              "React",
+              "React Native",
+              "Fastify",
+              "Node.js",
+              "MongoDB",
+              "Socket.io",
+              "Tailwind",
+            ].map((item) => (
+              <span
+                key={item}
+                className="px-2 py-0.5 rounded-md text-xs font-mono
+                  bg-zinc-100 text-zinc-700 border border-zinc-200/60"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </SpotlightCard>
+
+        {/* Quick Info & Contact: md:col-span-4 */}
+        <SpotlightCard className="md:col-span-4 p-6 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between pb-3 border-b border-zinc-100">
+              <span className="text-xs font-mono font-medium uppercase text-zinc-500">
+                Quick Bio
+              </span>
+              <Code2 className="w-4 h-4 text-zinc-400" />
+            </div>
+
+            <div className="mt-3.5 space-y-3.5 text-xs">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-zinc-400 shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-charcoal/60">
-                    Location
-                  </div>
-                  <div className="text-sm font-semibold text-charcoal">
-                    Kerala, India
-                  </div>
+                  <div className="text-zinc-400 font-mono text-[10px] uppercase">Location</div>
+                  <div className="text-zinc-800 font-medium">Kerala, India</div>
                 </div>
               </div>
 
-              {/* Current Focus */}
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-2.5">
                 <div
-                  className="p-2 rounded-[6px] bg-accent-light border-[1.5px]
-                    border-charcoal/40 text-accent shrink-0"
+                  className="w-4 h-4 rounded-full bg-accent/10 text-accent flex
+                    items-center justify-center shrink-0 mt-0.5"
                 >
-                  <Code2 className="w-4 h-4" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                 </div>
                 <div>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-charcoal/60">
-                    Current Focus
-                  </div>
-                  <div className="text-sm font-semibold text-charcoal">
-                    MCA Student & Full Stack Engineer
-                  </div>
+                  <div className="text-zinc-400 font-mono text-[10px] uppercase">Focus</div>
+                  <div className="text-zinc-800 font-medium">MCA Student & Full Stack Engineer</div>
                 </div>
               </div>
 
-              {/* Email */}
-              <div className="flex items-start gap-3">
-                <div
-                  className="p-2 rounded-[6px] bg-slatePill border-[1.5px]
-                    border-charcoal/40 text-charcoal shrink-0"
-                >
-                  <Mail className="w-4 h-4" />
-                </div>
+              <div className="flex items-start gap-2.5">
+                <Mail className="w-4 h-4 text-zinc-400 shrink-0 mt-0.5" />
                 <div className="min-w-0">
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-charcoal/60">
-                    Email
-                  </div>
+                  <div className="text-zinc-400 font-mono text-[10px] uppercase">Email</div>
                   <a
                     href="mailto:karthikmudappilakkil@gmail.com"
-                    className="text-xs sm:text-sm font-mono font-medium
-                      text-charcoal hover:text-accent transition-colors truncate block"
+                    className="text-zinc-800 hover:text-accent font-mono truncate block"
                   >
                     karthikmudappilakkil@gmail.com
                   </a>
                 </div>
               </div>
 
-              {/* Phone */}
-              <div className="flex items-start gap-3">
-                <div
-                  className="p-2 rounded-[6px] bg-slatePill border-[1.5px]
-                    border-charcoal/40 text-charcoal shrink-0"
-                >
-                  <Phone className="w-4 h-4" />
-                </div>
+              <div className="flex items-start gap-2.5">
+                <Phone className="w-4 h-4 text-zinc-400 shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-charcoal/60">
-                    Phone
-                  </div>
+                  <div className="text-zinc-400 font-mono text-[10px] uppercase">Phone</div>
                   <a
                     href="tel:+919995678189"
-                    className="text-sm font-mono font-medium text-charcoal
-                      hover:text-accent transition-colors"
+                    className="text-zinc-800 hover:text-accent font-mono"
                   >
                     +91 9995678189
                   </a>
@@ -293,60 +299,17 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Quick Metrics Bar */}
           <div
-            className="mt-6 pt-4 border-t-[1.5px] border-charcoal/20
-              grid grid-cols-2 gap-2 text-center"
+            className="mt-4 pt-3 border-t border-zinc-100 flex items-center
+              justify-between text-[11px] font-mono text-zinc-400"
           >
-            <div className="p-2 rounded-[6px] bg-slatePill border-[1.5px] border-charcoal/30">
-              <div className="text-lg font-mono font-bold text-accent">MERN & MEAN</div>
-              <div className="text-[10px] font-mono text-charcoal/70 uppercase">
-                Stack Mastery
-              </div>
-            </div>
-            <div className="p-2 rounded-[6px] bg-slatePill border-[1.5px] border-charcoal/30">
-              <div className="text-lg font-mono font-bold text-charcoal">Web & Mobile</div>
-              <div className="text-[10px] font-mono text-charcoal/70 uppercase">
-                Cross-Platform
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Highlight Banner: lg:col-span-12 */}
-        <div
-          className="lg:col-span-12 brutal-card p-4 bg-white flex flex-wrap
-            items-center justify-between gap-4"
-        >
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-[6px] bg-charcoal text-white">
-              <Cpu className="w-4 h-4" />
-            </div>
-            <span className="text-xs sm:text-sm font-mono font-semibold text-charcoal">
-              Core Architecture Stack:
+            <span>IST (UTC+5:30)</span>
+            <span className="flex items-center gap-1 text-emerald-600 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              Online
             </span>
           </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            {[
-              "React.js",
-              "React Native",
-              "Expo",
-              "Node.js",
-              "Fastify",
-              "MongoDB",
-              "Socket.io",
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="px-2.5 py-1 text-xs font-mono font-medium
-                  bg-[#F1F5F9] text-charcoal rounded-[4px] border border-charcoal/30"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
+        </SpotlightCard>
       </div>
     </section>
   );

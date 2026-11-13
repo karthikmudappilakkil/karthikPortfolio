@@ -1,13 +1,9 @@
 import { Mail, Phone, ArrowUp } from "lucide-react";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
       <path
         fillRule="evenodd"
         d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504"
@@ -63,28 +59,13 @@ function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14"
-      />
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14" />
       <path d="M24 5c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11z" />
-      <path
-        d="M6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764"
-      />
-      <path
-        d="M8.25 4.968c-.783 1.764-1.75 1.764-1.75 1.764zm13.5 12.268h-3v-5.604"
-      />
-      <path
-        d="M18.75 11.632c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765"
-      />
-      <path
-        d="M14.75 7.997c1.396-2.586 7-2.777 7 2.476v6.759z"
-      />
+      <path d="M6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764" />
+      <path d="M8.25 4.968c-.783 1.764-1.75 1.764-1.75 1.764zm13.5 12.268h-3v-5.604" />
+      <path d="M18.75 11.632c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765" />
+      <path d="M14.75 7.997c1.396-2.586 7-2.777 7 2.476v6.759z" />
     </svg>
   );
 }
@@ -95,54 +76,45 @@ export function FooterSection() {
   };
 
   return (
-    <footer
-      id="contact"
-      className="py-12 sm:py-16 scroll-mt-24 border-t-[1.5px] border-charcoal/15 mt-12"
-    >
-      <div className="brutal-card p-8 sm:p-12 bg-white text-charcoal relative overflow-hidden">
-        {/* Accent Bar */}
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-accent" />
-
+    <footer id="contact" className="pt-8 pb-16 scroll-mt-24">
+      <SpotlightCard
+        className="p-8 sm:p-12 relative overflow-hidden"
+        spotlightColor="rgba(37, 99, 235, 0.08)"
+      >
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div>
-            <div className="inline-flex items-center gap-2 brutal-pill mb-4">
-              <span className="w-2 h-2 rounded-full bg-accent animate-ping" />
-              <span>Open to Full-Time Roles & Consulting</span>
+          <div className="max-w-xl">
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full
+                bg-accent/10 text-accent text-xs font-mono mb-4"
+            >
+              <span className="w-2 h-2 rounded-full bg-accent" />
+              <span>Initiate Collaboration</span>
             </div>
 
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold
-                tracking-tight text-charcoal"
-            >
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950">
               Let's build something reliable.
             </h2>
 
-            <p
-              className="mt-3 text-sm sm:text-base text-charcoal/80 max-w-xl
-                font-normal leading-relaxed"
-            >
-              Whether you need a high-performance web platform, an ERP system feature,
-              or a cross-platform mobile application, let's connect and discuss how
-              I can add immediate value.
+            <p className="mt-3 text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
+              Open for full-stack engineering roles, product contract work, or technical consulting.
+              Reach out to discuss how I can bring velocity to your team.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
             <a
               href="mailto:karthikmudappilakkil@gmail.com"
-              className="brutal-btn brutal-btn-primary text-xs font-mono uppercase
-                tracking-wider py-3 px-6 flex items-center justify-center gap-2"
+              className="minimal-btn-primary"
             >
-              <Mail className="w-4 h-4" />
-              <span>Email Me</span>
+              <Mail className="w-4 h-4 opacity-80" />
+              <span>Email Me Directly</span>
             </a>
 
             <a
               href="tel:+919995678189"
-              className="brutal-btn brutal-btn-secondary text-xs font-mono uppercase
-                tracking-wider py-3 px-6 flex items-center justify-center gap-2"
+              className="minimal-btn-secondary"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4 text-zinc-600" />
               <span>+91 9995678189</span>
             </a>
           </div>
@@ -150,28 +122,19 @@ export function FooterSection() {
 
         {/* Links Grid */}
         <div
-          className="mt-10 pt-8 border-t-[1.5px] border-charcoal/15 flex flex-col
+          className="mt-10 pt-8 border-t border-zinc-100 flex flex-col
             sm:flex-row items-center justify-between gap-4"
         >
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-500">
             <a
               href="mailto:karthikmudappilakkil@gmail.com"
-              className="text-xs font-mono text-charcoal/70 hover:text-accent
-                transition-colors flex items-center gap-1.5 p-1"
+              className="hover:text-accent transition-colors"
             >
-              <Mail className="w-3.5 h-3.5" />
-              <span>karthikmudappilakkil@gmail.com</span>
+              karthikmudappilakkil@gmail.com
             </a>
-
-            <span className="text-charcoal/30 hidden sm:inline">•</span>
-
-            <a
-              href="tel:+919995678189"
-              className="text-xs font-mono text-charcoal/70 hover:text-accent
-                transition-colors flex items-center gap-1.5 p-1"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>+91 9995678189</span>
+            <span className="text-zinc-300 hidden sm:inline">•</span>
+            <a href="tel:+919995678189" className="hover:text-accent transition-colors">
+              +91 9995678189
             </a>
           </div>
 
@@ -180,40 +143,45 @@ export function FooterSection() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="brutal-btn brutal-btn-secondary p-2 min-h-[44px] min-w-[44px]"
+              className="p-2 rounded-full border border-zinc-200 text-zinc-600 hover:text-zinc-950
+                hover:bg-zinc-50 transition-colors min-h-[44px] min-w-[44px]
+                inline-flex items-center justify-center"
               aria-label="GitHub Profile"
             >
-              <GithubIcon className="w-4 h-4 text-charcoal" />
+              <GithubIcon className="w-4 h-4" />
             </a>
 
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="brutal-btn brutal-btn-secondary p-2 min-h-[44px] min-w-[44px]"
+              className="p-2 rounded-full border border-zinc-200 text-[#0077b5] hover:bg-zinc-50
+                transition-colors min-h-[44px] min-w-[44px] inline-flex items-center justify-center"
               aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
 
             <button
               onClick={scrollToTop}
-              className="brutal-btn brutal-btn-secondary p-2 min-h-[44px] min-w-[44px]"
+              className="p-2 rounded-full border border-zinc-200 text-zinc-600 hover:text-zinc-950
+                hover:bg-zinc-50 transition-colors min-h-[44px] min-w-[44px]
+                inline-flex items-center justify-center"
               aria-label="Back to top"
             >
-              <ArrowUp className="w-4 h-4 text-charcoal" />
+              <ArrowUp className="w-4 h-4" />
             </button>
           </div>
         </div>
 
         <div
-          className="mt-6 pt-4 border-t border-charcoal/10 flex flex-col sm:flex-row
-            items-center justify-between gap-2 text-[11px] font-mono text-charcoal/60"
+          className="mt-6 pt-4 border-t border-zinc-100 flex flex-col sm:flex-row
+            items-center justify-between gap-2 text-[11px] font-mono text-zinc-400"
         >
           <div>© {new Date().getFullYear()} Karthik M P. All rights reserved.</div>
-          <div>Designed with Minimalist Neo-Brutalist Bento System</div>
+          <div>Precision Minimalist Design System</div>
         </div>
-      </div>
+      </SpotlightCard>
     </footer>
   );
 }
