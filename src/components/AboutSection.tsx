@@ -1,5 +1,4 @@
 import { MapPin, Mail, Phone, Award, Terminal } from "lucide-react";
-import { PosterStamp } from "@/components/ui/PosterStamp";
 import { CornerDice } from "@/components/ui/CornerDice";
 import { CornerCross, CornerTicks } from "@/components/ui/PosterMarks";
 
@@ -124,7 +123,7 @@ export function AboutSection() {
             <div className="poster-card p-6 sm:p-7 bg-[#ede8e0] relative">
               <CornerTicks />
 
-              {/* Header with Circular Stamp */}
+              {/* Header */}
               <div className="flex items-start justify-between gap-4 mb-4 pb-4 border-b-2 border-ink">
                 <div>
                   <span
@@ -140,14 +139,6 @@ export function AboutSection() {
                     RECORD ID: KMP-9995
                   </div>
                 </div>
-
-                <PosterStamp
-                  text="KARTHIK M P • FULL STACK ENG"
-                  subtext="VERIFIED"
-                  year="2026"
-                  size={84}
-                  className="-mt-2 -mr-1"
-                />
               </div>
 
               {/* Details List */}

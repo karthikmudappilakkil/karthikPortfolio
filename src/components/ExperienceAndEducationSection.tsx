@@ -1,7 +1,6 @@
 import { ExternalLink, CheckCircle2, GraduationCap, Briefcase } from "lucide-react";
 import { CornerCross, CornerTicks } from "@/components/ui/PosterMarks";
 import { CornerDice } from "@/components/ui/CornerDice";
-import { PosterStamp } from "@/components/ui/PosterStamp";
 
 export function ExperienceAndEducationSection() {
   const experiences = [
@@ -154,14 +153,6 @@ export function ExperienceAndEducationSection() {
                   </div>
 
                   <div className="flex items-center gap-3 self-start sm:self-auto">
-                    {exp.featured && (
-                      <PosterStamp
-                        text="NECTTOS ERP • VERIFIED PRODUCTION"
-                        subtext="SYSTEM"
-                        year="2026"
-                        size={80}
-                      />
-                    )}
                     <CornerDice initialValue={i + 1} size={36} />
                   </div>
                 </div>

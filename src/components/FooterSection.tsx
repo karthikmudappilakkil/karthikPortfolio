@@ -1,7 +1,6 @@
 import { ArrowUp } from "lucide-react";
 import { CornerCross } from "@/components/ui/PosterMarks";
 import { BarcodeStrip } from "@/components/ui/PosterMarks";
-import { PosterStamp } from "@/components/ui/PosterStamp";
 
 export function FooterSection() {
   const scrollToTop = () => {
@@ -37,16 +36,9 @@ export function FooterSection() {
             </div>
           </div>
 
-          {/* Barcode & Stamp */}
-          <div className="flex items-center gap-6">
+          {/* Barcode Strip */}
+          <div className="flex items-center">
             <BarcodeStrip code="KMP-2026-PORTFOLIO" />
-            <PosterStamp
-              text="OFFICIAL ARCHIVAL EDITION • 2026"
-              subtext="KARTHIK"
-              year="2026"
-              size={76}
-              className="hidden sm:inline-block"
-            />
           </div>
 
           {/* Direct Channels */}

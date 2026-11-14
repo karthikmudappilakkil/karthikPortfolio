@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Mail, Phone, Send, Check, Copy } from "lucide-react";
 import { CornerCross, CornerTicks } from "@/components/ui/PosterMarks";
 import { CornerDice } from "@/components/ui/CornerDice";
-import { PosterStamp } from "@/components/ui/PosterStamp";
 import { MiniWavingCharacter } from "@/components/ui/MiniWavingCharacter";
 
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -136,21 +135,13 @@ export function ContactSection() {
             <div className="poster-card p-6 sm:p-7 bg-[#ede8e0] relative">
               <CornerTicks />
 
-              <div className="flex items-start justify-between gap-4 pb-4 border-b-2 border-ink mb-4">
-                <div>
-                  <span className="font-mono text-[10px] bg-posterRed text-paper px-2 py-0.5 font-bold uppercase tracking-wider">
-                    DIRECT DISPATCH
-                  </span>
-                  <h3 className="font-poster text-2xl sm:text-3xl text-ink uppercase tracking-wide leading-none mt-1">
-                    START A CONVERSATION
-                  </h3>
-                </div>
-                <PosterStamp
-                  text="AVAILABLE FOR DISPATCH • 2026"
-                  subtext="STATUS"
-                  year="OPEN"
-                  size={76}
-                />
+              <div className="pb-4 border-b-2 border-ink mb-4">
+                <span className="font-mono text-[10px] bg-posterRed text-paper px-2 py-0.5 font-bold uppercase tracking-wider">
+                  DIRECT DISPATCH
+                </span>
+                <h3 className="font-poster text-2xl sm:text-3xl text-ink uppercase tracking-wide leading-none mt-1">
+                  START A CONVERSATION
+                </h3>
               </div>
 
               <p className="text-xs font-mono text-ink/80 leading-relaxed mb-6">
