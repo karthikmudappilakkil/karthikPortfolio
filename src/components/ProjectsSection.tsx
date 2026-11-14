@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ExternalLink, ShoppingBag, Truck, ShieldAlert } from "lucide-react";
+import { CornerCross, CornerTicks } from "@/components/ui/PosterMarks";
+import { CornerDice } from "@/components/ui/CornerDice";
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<string>("all");
@@ -9,11 +11,12 @@ export function ProjectsSection() {
       id: "minler-jewels",
       num: "EDITION 01",
       category: "ecommerce",
-      title: "Minler Jewels",
+      title: "MINLER JEWELS",
       tagline: "Custom Shopify Silver Jewellery Storefront",
       domain: "minlerjewels.com",
       url: "https://minlerjewels.com",
       icon: ShoppingBag,
+      diceVal: 1,
       description:
         "Custom-designed Shopify e-commerce storefront engineered from scratch using " +
         "Shopify Liquid for an upscale silver jewellery business, featuring responsive product " +
@@ -30,11 +33,12 @@ export function ProjectsSection() {
       id: "aeriz-way",
       num: "EDITION 02",
       category: "business",
-      title: "Aeriz Way Logistics",
+      title: "AERIZ WAY LOGISTICS",
       tagline: "Commercial Freight & Cargo Web Platform",
       domain: "aerizwaylogistics.com",
       url: "https://aerizwaylogistics.com",
       icon: Truck,
+      diceVal: 2,
       description:
         "Responsive corporate website designed and developed to present freight forwarding, " +
         "cargo solutions, and logistics operations with high-clarity UX and conversion-focused " +
@@ -51,10 +55,11 @@ export function ProjectsSection() {
       id: "womens-safety",
       num: "EDITION 03",
       category: "academic",
-      title: "Sex Education & Women's Safety App",
+      title: "WOMEN'S SAFETY & HEALTH PLATFORM",
       tagline: "Dual Web Portal & Native Android Application",
       badge: "Final Year Academic Project (Dec 2023)",
       icon: ShieldAlert,
+      diceVal: 3,
       description:
         "Full-stack dual-platform solution encompassing a secure web portal and a native Android " +
         "application engineered to deliver interactive, vetted educational modules and emergency " +
@@ -77,44 +82,48 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-16 sm:py-24 border-b-[1.5px] border-ink bg-paper scroll-mt-16"
+      className="py-16 sm:py-24 border-b-2 border-ink bg-paper scroll-mt-16 relative"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <CornerCross className="absolute -top-3 left-4 hidden sm:block" />
+        <CornerCross className="absolute -top-3 right-4 hidden sm:block" />
+
         {/* Section Header */}
         <div
           className="flex flex-col sm:flex-row sm:items-baseline justify-between
-            gap-4 pb-4 border-b-[1.5px] border-ink mb-10"
+            gap-4 pb-4 border-b-2 border-ink mb-10"
         >
           <div className="flex items-center gap-3">
             <span
-              className="font-mono text-xs font-bold bg-posterRed text-paper px-2
-                py-0.5 border border-ink"
+              className="font-mono text-xs font-bold bg-posterRed text-paper px-2.5
+                py-1 border-2 border-ink shadow-[2px_2px_0_#141414] uppercase tracking-wider"
             >
               SEC. 03
             </span>
             <h2
-              className="font-mono font-bold text-2xl sm:text-3xl text-ink
-                tracking-tight uppercase"
+              className="font-poster text-4xl sm:text-6xl text-ink
+                tracking-wide uppercase leading-none"
             >
               SELECTED WORKS
             </h2>
           </div>
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-2">
+          {/* Filter Index Tabs */}
+          <div className="flex flex-wrap items-center gap-2 font-mono text-xs font-bold">
             {[
               { id: "all", label: "ALL EDITIONS" },
               { id: "ecommerce", label: "E-COMMERCE" },
-              { id: "business", label: "COMMERCIAL" },
-              { id: "academic", label: "ACADEMIC & MOBILE" },
+              { id: "business", label: "ENTERPRISE" },
+              { id: "academic", label: "SYSTEMS" },
             ].map((tab) => (
               <button
                 key={tab.id}
+                type="button"
                 onClick={() => setActiveFilter(tab.id)}
-                className={`px-3 py-1 text-xs font-mono font-bold border-[1.5px]
-                  border-ink transition-all ${
+                className={`px-3 py-1.5 border-2 border-ink text-xs transition-all
+                  ${
                     activeFilter === tab.id
-                      ? "bg-posterRed text-paper shadow-poster -translate-y-0.5"
+                      ? "bg-posterRed text-paper shadow-[2px_2px_0_#141414]"
                       : "bg-paper text-ink hover:bg-paperDark"
                   }`}
               >
@@ -124,106 +133,102 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Broadside Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {filteredProjects.map((project) => {
-            const IconComponent = project.icon;
+          {filteredProjects.map((p) => {
+            const Icon = p.icon;
             return (
-              <div
-                key={project.id}
-                className={`${project.colSpan} poster-card p-6 sm:p-8 bg-white
-                  border-[1.5px] border-ink flex flex-col justify-between`}
+              <article
+                key={p.id}
+                className={`${p.colSpan} poster-card bg-white p-6 sm:p-8 relative flex flex-col justify-between`}
               >
-                <div>
-                  {/* Top Meta */}
-                  <div
-                    className="flex flex-wrap items-center justify-between gap-2 pb-4
-                      border-b-[1.5px] border-ink"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-posterRed">
-                        {project.num}
-                      </span>
-                      <span className="text-ink/40">•</span>
-                      <span className="font-mono text-xs text-ink/70 uppercase">
-                        {project.category}
-                      </span>
-                    </div>
+                <CornerTicks />
 
-                    {project.url ? (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1 font-mono text-xs
-                          font-bold bg-paper text-ink border border-ink hover:bg-posterRed
-                          hover:text-paper transition-colors"
-                        aria-label={`Visit ${project.title}`}
-                      >
-                        <span>{project.domain}</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    ) : (
-                      project.badge && (
-                        <span
-                          className="font-mono text-xs font-bold text-posterRed bg-posterRed/10
-                            border border-posterRed/40 px-2 py-0.5"
-                        >
-                          {project.badge}
+                <div>
+                  {/* Top Bar with Number, Tag, and Corner Dice */}
+                  <div className="flex items-center justify-between gap-4 pb-4 border-b-2 border-ink mb-5">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs font-bold bg-ink text-paper px-2.5 py-1 uppercase tracking-wider">
+                        {p.num}
+                      </span>
+                      {p.badge && (
+                        <span className="font-mono text-[11px] font-bold text-posterRed uppercase tracking-wider border border-posterRed px-2 py-0.5">
+                          {p.badge}
                         </span>
-                      )
-                    )}
+                      )}
+                    </div>
+                    <CornerDice initialValue={p.diceVal} size={36} />
                   </div>
 
                   {/* Title & Tagline */}
-                  <div className="mt-5 flex items-start gap-4">
-                    <div className="p-3 bg-paper border border-ink text-posterRed shrink-0">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
+                  <div className="flex items-start justify-between gap-4 mb-3">
                     <div>
-                      <h3
-                        className="font-mono font-bold text-xl sm:text-2xl text-ink
-                          tracking-tight uppercase"
-                      >
-                        {project.title}
+                      <h3 className="font-poster text-3xl sm:text-4xl text-ink uppercase tracking-wide leading-none">
+                        {p.title}
                       </h3>
-                      <p className="text-xs font-mono font-semibold text-posterRed mt-0.5">
-                        {project.tagline}
-                      </p>
+                      <div className="font-mono text-xs text-posterRed font-bold uppercase mt-1 tracking-wider">
+                        // {p.tagline}
+                      </div>
+                    </div>
+
+                    <div className="w-10 h-10 bg-paper border-2 border-ink shadow-[2px_2px_0_#141414] flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5 text-ink" />
                     </div>
                   </div>
 
-                  <p className="mt-4 text-sm text-ink/80 leading-relaxed font-normal">
-                    {project.description}
+                  {/* Description */}
+                  <p className="text-sm text-ink/85 leading-relaxed font-normal mb-6">
+                    {p.description}
                   </p>
 
-                  {/* Highlights Bullet List */}
-                  <div className="mt-4 space-y-2">
-                    {project.highlights.map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex items-start gap-2.5 text-xs sm:text-sm text-ink/85"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-posterRed shrink-0 mt-1.5" />
-                        <span>{h}</span>
+                  {/* Perforated Divider */}
+                  <div className="w-full border-t-2 border-dashed border-ink/40 my-4 relative">
+                    <span className="absolute -left-6 top-1/2 -translate-y-1/2 text-ink/40 font-mono text-xs">
+                      ✂
+                    </span>
+                  </div>
+
+                  {/* Key Highlights */}
+                  <div className="space-y-2 mb-6">
+                    <div className="font-mono text-[11px] font-bold text-ink uppercase tracking-wider">
+                      SPECIFICATION LOG:
+                    </div>
+                    {p.highlights.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-xs font-mono text-ink/85">
+                        <span className="text-posterRed font-bold mt-0.5">▶</span>
+                        <span>{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Tech Tags */}
-                <div className="mt-6 pt-4 border-t-[1.5px] border-ink flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 text-xs font-mono font-semibold bg-paper
-                        text-ink border border-ink/50"
+                {/* Footer with Tags and Action Button */}
+                <div className="pt-4 border-t-2 border-ink flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto">
+                  <div className="flex flex-wrap gap-1.5">
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 text-[11px] font-mono font-bold bg-[#ede8e0]
+                          border border-ink/70 text-ink"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {p.url && (
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="poster-btn-primary py-2 px-4 text-xs font-mono inline-flex items-center justify-center gap-1.5 shrink-0"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <span>VISIT LIVE {p.domain}</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>

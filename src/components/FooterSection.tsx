@@ -1,4 +1,7 @@
 import { ArrowUp } from "lucide-react";
+import { CornerCross } from "@/components/ui/PosterMarks";
+import { BarcodeStrip } from "@/components/ui/PosterMarks";
+import { PosterStamp } from "@/components/ui/PosterStamp";
 
 export function FooterSection() {
   const scrollToTop = () => {
@@ -6,28 +9,44 @@ export function FooterSection() {
   };
 
   return (
-    <footer className="bg-paper py-12 border-t-[1.5px] border-ink">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <footer className="bg-paper py-14 border-t-2 border-ink relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <CornerCross className="absolute -top-3 left-4 hidden sm:block" />
+        <CornerCross className="absolute -top-3 right-4 hidden sm:block" />
+
         <div
           className="flex flex-col md:flex-row md:items-center justify-between
-            gap-6 pb-8 border-b-[1.5px] border-ink"
+            gap-6 pb-10 border-b-2 border-ink"
         >
           {/* Brand Colophon */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <div
-              className="w-10 h-10 bg-posterRed text-paper border-[1.5px] border-ink
-                flex items-center justify-center font-mono font-bold text-lg shadow-poster"
+              className="w-12 h-12 bg-posterRed text-paper border-2 border-ink
+                flex items-center justify-center font-mono font-bold text-xl
+                shadow-[3px_3px_0_#141414] select-none"
             >
               K
             </div>
             <div>
-              <div className="font-mono font-bold text-sm text-ink uppercase tracking-tight">
-                KARTHIK M P // PORTFOLIO 2026
+              <div className="font-poster text-3xl text-ink uppercase tracking-wider leading-none">
+                KARTHIK M P
               </div>
-              <div className="font-mono text-xs text-posterRed font-semibold uppercase">
-                ARCHIVAL RED-ON-PAPER EDITION
+              <div className="font-mono text-xs text-posterRed font-bold uppercase mt-1 tracking-widest">
+                ARCHIVAL RED-ON-PAPER EDITION // 2026
               </div>
             </div>
+          </div>
+
+          {/* Barcode & Stamp */}
+          <div className="flex items-center gap-6">
+            <BarcodeStrip code="KMP-2026-PORTFOLIO" />
+            <PosterStamp
+              text="OFFICIAL ARCHIVAL EDITION • 2026"
+              subtext="KARTHIK"
+              year="2026"
+              size={76}
+              className="hidden sm:inline-block"
+            />
           </div>
 
           {/* Direct Channels */}
@@ -73,7 +92,7 @@ export function FooterSection() {
               md:self-auto flex items-center gap-1.5"
             aria-label="Back to top"
           >
-            <span className="text-xs font-mono font-bold">TOP</span>
+            <span className="text-xs font-mono font-bold">RETURN TO TOP</span>
             <ArrowUp className="w-4 h-4" />
           </button>
         </div>
@@ -81,13 +100,13 @@ export function FooterSection() {
         {/* Bottom Colophon Notes */}
         <div
           className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3
-            text-[11px] font-mono text-ink/70"
+            text-xs font-mono text-ink/70"
         >
           <div>
             © 2026 Karthik M P. All engineering blueprints & software editions documented.
           </div>
-          <div className="text-posterRed font-bold">
-            NO FONTS • NO IMAGES • 100% DRAWN GEOMETRY
+          <div className="text-posterRed font-bold tracking-wider">
+            SCREEN-PRINTED AESTHETIC • ZERO WEBLIB BLOAT
           </div>
         </div>
       </div>

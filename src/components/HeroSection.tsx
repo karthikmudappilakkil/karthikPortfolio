@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-paper border-b-[1.5px] border-ink">
+    <section className="relative w-full overflow-hidden bg-paper border-b-2 border-ink">
       {/* Centerpiece Waving Poster Landing */}
       <div className="w-full h-[85svh] sm:h-[90svh] min-h-[580px] max-h-[820px] relative">
         <WavingPortfolioLanding
@@ -24,7 +24,7 @@ export function HeroSection() {
       </div>
 
       {/* Editorial Scroll Prompt & Interactive Hint Bar */}
-      <div className="border-t-[1.5px] border-ink bg-paperDark/70 px-4 py-3">
+      <div className="border-t-2 border-ink bg-paperDark px-4 py-3">
         <div
           className="max-w-6xl mx-auto flex flex-wrap items-center justify-between
             gap-3 text-xs font-mono"

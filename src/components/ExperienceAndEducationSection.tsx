@@ -1,12 +1,16 @@
 import { ExternalLink, CheckCircle2, GraduationCap, Briefcase } from "lucide-react";
+import { CornerCross, CornerTicks } from "@/components/ui/PosterMarks";
+import { CornerDice } from "@/components/ui/CornerDice";
+import { PosterStamp } from "@/components/ui/PosterStamp";
 
 export function ExperienceAndEducationSection() {
   const experiences = [
     {
-      role: "Full Stack Developer",
-      company: "Necttos",
+      role: "FULL STACK DEVELOPER",
+      company: "NECTTOS",
       url: "https://necttos.com",
       period: "2025 – 2026",
+      status: "FEATURED PRODUCTION CASEFILE",
       location: "Product Engineering",
       summary:
         "Engineered key modules for flagship product-based college ERP and institutional " +
@@ -20,11 +24,13 @@ export function ExperienceAndEducationSection() {
           "PDF viewing & annotation tools.",
       ],
       stack: ["React.js", "React Native", "Expo", "Fastify", "Node.js", "MongoDB", "Socket.io"],
+      featured: true,
     },
     {
-      role: "Full Stack Development Training (MERN & MEAN)",
-      company: "Luminar Technolab",
-      period: "Sep 2024 – Mar 2025",
+      role: "FULL STACK DEVELOPMENT TRAINING (MERN & MEAN)",
+      company: "LUMINAR TECHNOLAB",
+      period: "SEP 2024 – MAR 2025",
+      status: "SPECIALIZED IMMERSION",
       location: "Ernakulam",
       summary:
         "Intensive hands-on program focused on full-stack web architectures, RESTful API design, " +
@@ -36,11 +42,13 @@ export function ExperienceAndEducationSection() {
           "performance tuning.",
       ],
       stack: ["React", "Angular", "Node.js", "Express", "MongoDB"],
+      featured: false,
     },
     {
-      role: "Software Development Internship",
-      company: "Regional Technology",
-      period: "Sep 2023 – Dec 2023",
+      role: "SOFTWARE DEVELOPMENT INTERNSHIP",
+      company: "REGIONAL TECHNOLOGY",
+      period: "SEP 2023 – DEC 2023",
+      status: "INDUSTRY APPRENTICESHIP",
       location: "Kozhikode",
       summary:
         "Collaborated in an Agile development environment to engineer full-stack web " +
@@ -51,227 +59,188 @@ export function ExperienceAndEducationSection() {
           "code reviews.",
       ],
       stack: ["Python", "Django", "Flutter", "Git", "Agile"],
+      featured: false,
     },
   ];
 
   const educations = [
     {
-      degree: "Master of Computer Applications (MCA)",
+      degree: "MASTER OF COMPUTER APPLICATIONS (MCA)",
       institution: "Christ College of Engineering, Irinjalakuda",
-      status: "Currently Pursuing",
-      period: "Present",
+      status: "CURRENTLY PURSUING",
+      period: "PRESENT",
       note:
-        "Advanced computing, distributed systems, software engineering methodologies, " +
+        "Advanced distributed computing, modern software architectures, algorithms, " +
         "and mobile frameworks.",
     },
     {
-      degree: "Bachelor of Science in Computer Science",
-      institution:
-        "Little Flower Institute of Social Sciences and Health (LISSAH), " +
-        "University of Calicut",
-      status: "Graduated",
+      degree: "BACHELOR OF SCIENCE IN COMPUTER SCIENCE",
+      institution: "Little Flower Institute of Social Sciences and Health (LISSAH), Calicut",
+      status: "GRADUATED",
       period: "2021 – 2024",
       note:
-        "Foundational coursework in algorithms, data structures, database management systems, " +
-        "and programming principles.",
+        "Foundational coursework in data structures, algorithms, database systems, " +
+        "and core software principles.",
     },
   ];
 
   return (
     <section
       id="experience"
-      className="py-16 sm:py-24 border-b-[1.5px] border-ink bg-paper scroll-mt-16"
+      className="py-16 sm:py-24 border-b-2 border-ink bg-paper scroll-mt-16 relative"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <CornerCross className="absolute -top-3 left-4 hidden sm:block" />
+        <CornerCross className="absolute -top-3 right-4 hidden sm:block" />
+
         {/* Section Header */}
         <div
           className="flex flex-col sm:flex-row sm:items-baseline justify-between
-            gap-2 pb-4 border-b-[1.5px] border-ink mb-12"
+            gap-3 pb-4 border-b-2 border-ink mb-12"
         >
           <div className="flex items-center gap-3">
             <span
-              className="font-mono text-xs font-bold bg-posterRed text-paper px-2
-                py-0.5 border border-ink"
+              className="font-mono text-xs font-bold bg-posterRed text-paper px-2.5
+                py-1 border-2 border-ink shadow-[2px_2px_0_#141414] uppercase tracking-wider"
             >
               SEC. 04
             </span>
             <h2
-              className="font-mono font-bold text-2xl sm:text-3xl text-ink
-                tracking-tight uppercase"
+              className="font-poster text-4xl sm:text-6xl text-ink
+                tracking-wide uppercase leading-none"
             >
-              CAREER & PEDAGOGY
+              CAREER & EDUCATION
             </h2>
           </div>
-          <span className="font-mono text-xs text-posterRed uppercase font-bold tracking-wider">
-            TIMELINE & ACADEMIC RECORDS
+          <span className="font-mono text-xs text-posterRed uppercase font-bold tracking-widest">
+            [CHRONOLOGICAL RECORD]
           </span>
         </div>
 
-        {/* 2-Column Split: Experience (left) & Education (right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Work Experience Timeline: lg:col-span-7 */}
-          <div className="lg:col-span-7">
-            <div className="flex items-center gap-2 pb-3 border-b-[1.5px] border-ink mb-6">
-              <Briefcase className="w-4 h-4 text-posterRed" />
-              <h3 className="font-mono font-bold text-sm tracking-wider uppercase text-ink">
-                INDUSTRY APPOINTMENTS
-              </h3>
-            </div>
+        {/* Experience Timeline Broadside */}
+        <div className="space-y-8 mb-16">
+          <div className="flex items-center gap-2 pb-2 border-b-2 border-ink text-sm font-mono font-bold uppercase text-ink">
+            <Briefcase className="w-4 h-4 text-posterRed" />
+            <span>ENGINEERING EXPERIENCE</span>
+          </div>
 
-            <div className="space-y-6 relative">
-              {experiences.map((exp, idx) => (
-                <div
-                  key={idx}
-                  className="poster-card p-6 bg-white border-[1.5px] border-ink relative"
-                >
-                  {/* Top Bar */}
-                  <div
-                    className="flex flex-wrap items-center justify-between gap-2 pb-3
-                      border-b-[1.5px] border-ink"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-posterRed">
-                        #{idx + 1}
+          <div className="space-y-6">
+            {experiences.map((exp, i) => (
+              <div
+                key={i}
+                className={`poster-card p-6 sm:p-8 relative ${
+                  exp.featured ? "bg-white border-2 border-ink" : "bg-[#ede8e0]"
+                }`}
+              >
+                <CornerTicks />
+
+                {/* Top Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b-2 border-ink mb-5">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-mono text-xs font-bold bg-posterRed text-paper px-2 py-0.5 uppercase tracking-wider">
+                        {exp.status}
                       </span>
-                      <span className="font-mono text-xs font-bold text-ink uppercase">
-                        {exp.company}
+                      <span className="font-mono text-xs text-ink/70 font-bold">
+                        // {exp.period}
                       </span>
-                      {exp.location && (
-                        <span className="font-mono text-[11px] text-ink/60">
-                          ({exp.location})
-                        </span>
-                      )}
                     </div>
-                    <span
-                      className="font-mono text-xs font-bold text-ink bg-paper px-2 py-0.5
-                        border border-ink/40"
-                    >
-                      {exp.period}
-                    </span>
-                  </div>
-
-                  <div className="mt-4">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <h4 className="font-mono font-bold text-lg text-ink">
-                        {exp.role}
-                      </h4>
-                      {exp.url && (
-                        <a
-                          href={exp.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 font-mono text-xs font-bold
-                            text-posterRed hover:underline"
-                        >
-                          <span>necttos.com</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      )}
-                    </div>
-
-                    <p className="mt-2 text-xs sm:text-sm text-ink/80 leading-relaxed font-normal">
-                      {exp.summary}
-                    </p>
-
-                    <div className="mt-3.5 space-y-2">
-                      {exp.achievements.map((item, aIdx) => (
-                        <div key={aIdx} className="flex items-start gap-2 text-xs text-ink/90">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-posterRed shrink-0 mt-0.5" />
-                          <span className="leading-snug">{item}</span>
-                        </div>
-                      ))}
+                    <h3 className="font-poster text-3xl sm:text-4xl text-ink uppercase tracking-wide leading-none">
+                      {exp.role}
+                    </h3>
+                    <div className="font-mono text-sm text-posterRed font-bold mt-1">
+                      @ {exp.company} — {exp.location}
                     </div>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-ink/20 flex flex-wrap gap-1.5">
-                    {exp.stack.map((t) => (
+                  <div className="flex items-center gap-3 self-start sm:self-auto">
+                    {exp.featured && (
+                      <PosterStamp
+                        text="NECTTOS ERP • VERIFIED PRODUCTION"
+                        subtext="SYSTEM"
+                        year="2026"
+                        size={80}
+                      />
+                    )}
+                    <CornerDice initialValue={i + 1} size={36} />
+                  </div>
+                </div>
+
+                {/* Summary */}
+                <p className="text-sm text-ink/90 leading-relaxed font-normal mb-5">
+                  {exp.summary}
+                </p>
+
+                {/* Achievements List */}
+                <div className="space-y-2 mb-6">
+                  {exp.achievements.map((ach, j) => (
+                    <div key={j} className="flex items-start gap-2.5 text-xs font-mono text-ink/85">
+                      <CheckCircle2 className="w-4 h-4 text-posterRed shrink-0 mt-0.5" />
+                      <span>{ach}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Footer with Stack and Link */}
+                <div className="pt-4 border-t-2 border-ink flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {exp.stack.map((tech) => (
                       <span
-                        key={t}
-                        className="px-2 py-0.5 text-[11px] font-mono font-semibold bg-paper
-                          text-ink border border-ink/40"
+                        key={tech}
+                        className="px-2 py-0.5 text-[11px] font-mono font-bold bg-paper border border-ink/70 text-ink"
                       >
-                        {t}
+                        {tech}
                       </span>
                     ))}
                   </div>
+
+                  {exp.url && (
+                    <a
+                      href={exp.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="poster-btn-secondary py-1.5 px-3 text-xs font-mono inline-flex items-center gap-1.5 self-start sm:self-auto"
+                    >
+                      <span>VISIT NECTTOS.COM</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Academic Credentials Section */}
+        <div className="space-y-6">
+          <div className="flex items-center gap-2 pb-2 border-b-2 border-ink text-sm font-mono font-bold uppercase text-ink">
+            <GraduationCap className="w-4 h-4 text-posterRed" />
+            <span>ACADEMIC FOUNDATION & DEGREES</span>
           </div>
 
-          {/* Education Timeline: lg:col-span-5 */}
-          <div className="lg:col-span-5">
-            <div className="flex items-center gap-2 pb-3 border-b-[1.5px] border-ink mb-6">
-              <GraduationCap className="w-4 h-4 text-posterRed" />
-              <h3 className="font-mono font-bold text-sm tracking-wider uppercase text-ink">
-                ACADEMIC CREDENTIALS
-              </h3>
-            </div>
-
-            <div className="space-y-6">
-              {educations.map((edu, idx) => (
-                <div
-                  key={idx}
-                  className="poster-card p-6 bg-paperDark border-[1.5px] border-ink flex
-                    flex-col justify-between"
-                >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {educations.map((edu, i) => (
+              <div key={i} className="poster-card p-6 bg-white relative">
+                <CornerTicks />
+                <div className="flex items-start justify-between gap-3 pb-3 border-b-2 border-ink mb-3">
                   <div>
-                    <div
-                      className="flex items-center justify-between gap-2 pb-3
-                        border-b-[1.5px] border-ink"
-                    >
-                      <span
-                        className="font-mono text-xs font-bold text-paper bg-posterRed px-2
-                          py-0.5 border border-ink"
-                      >
-                        {edu.status}
-                      </span>
-                      <span className="font-mono text-xs font-bold text-ink">
-                        {edu.period}
-                      </span>
-                    </div>
-
-                    <h4
-                      className="mt-4 font-mono font-bold text-base sm:text-lg text-ink
-                        leading-snug"
-                    >
+                    <span className="font-mono text-[10px] text-posterRed font-bold uppercase tracking-widest">
+                      {edu.status} // {edu.period}
+                    </span>
+                    <h4 className="font-poster text-2xl sm:text-3xl text-ink uppercase tracking-wide leading-tight mt-1">
                       {edu.degree}
                     </h4>
-
-                    <p className="mt-1 font-mono text-xs font-semibold text-posterRed">
-                      {edu.institution}
-                    </p>
-
-                    <p className="mt-3 text-xs text-ink/80 leading-relaxed font-normal">
-                      {edu.note}
-                    </p>
                   </div>
-
-                  <div
-                    className="mt-5 pt-3 border-t-[1.5px] border-ink/40 flex items-center
-                      justify-between text-[11px] font-mono text-ink/70"
-                  >
-                    <span>ACADEMIC VERIFICATION</span>
-                    <span className="font-bold text-posterRed">AUTHENTIC</span>
-                  </div>
+                  <CornerDice initialValue={i + 4} size={32} />
                 </div>
-              ))}
-
-              {/* Engineering Colophon Box */}
-              <div className="poster-card p-5 bg-ink text-paper border-[1.5px] border-ink">
-                <div
-                  className="flex items-center gap-2 text-posterRed text-xs font-mono
-                    font-bold uppercase tracking-wider mb-2"
-                >
-                  <span className="w-2 h-2 rounded-full bg-posterRed" />
-                  <span>CORE ENGINEERING STANDARD</span>
+                <div className="font-mono text-xs font-bold text-ink mb-2">
+                  {edu.institution}
                 </div>
-                <p className="text-xs text-paper/90 leading-relaxed font-mono">
-                  "Every system written must be legible, testable, and capable of operating under
-                  high production load without undocumented dependencies."
+                <p className="text-xs font-mono text-ink/80 leading-relaxed">
+                  {edu.note}
                 </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

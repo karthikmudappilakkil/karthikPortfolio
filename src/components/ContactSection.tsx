@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Mail, Phone, Send, Check, Copy } from "lucide-react";
+import { CornerCross, CornerTicks } from "@/components/ui/PosterMarks";
+import { CornerDice } from "@/components/ui/CornerDice";
+import { PosterStamp } from "@/components/ui/PosterStamp";
+import { MiniWavingCharacter } from "@/components/ui/MiniWavingCharacter";
 
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -79,13 +83,6 @@ export function ContactSection() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [diceRoll, setDiceRoll] = useState(6);
-
-  const rollTransmissionDice = () => {
-    let next = Math.floor(Math.random() * 6) + 1;
-    while (next === diceRoll) next = Math.floor(Math.random() * 6) + 1;
-    setDiceRoll(next);
-  };
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("karthikmudappilakkil@gmail.com");
@@ -102,173 +99,175 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-16 sm:py-24 border-b-[1.5px] border-ink bg-paper scroll-mt-16"
+      className="py-16 sm:py-24 border-b-2 border-ink bg-paper scroll-mt-16 relative"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <CornerCross className="absolute -top-3 left-4 hidden sm:block" />
+        <CornerCross className="absolute -top-3 right-4 hidden sm:block" />
+
         {/* Section Header */}
         <div
           className="flex flex-col sm:flex-row sm:items-baseline justify-between
-            gap-2 pb-4 border-b-[1.5px] border-ink mb-12"
+            gap-3 pb-4 border-b-2 border-ink mb-12"
         >
           <div className="flex items-center gap-3">
             <span
-              className="font-mono text-xs font-bold bg-posterRed text-paper px-2
-                py-0.5 border border-ink"
+              className="font-mono text-xs font-bold bg-posterRed text-paper px-2.5
+                py-1 border-2 border-ink shadow-[2px_2px_0_#141414] uppercase tracking-wider"
             >
               SEC. 05
             </span>
             <h2
-              className="font-mono font-bold text-2xl sm:text-3xl text-ink
-                tracking-tight uppercase"
+              className="font-poster text-4xl sm:text-6xl text-ink
+                tracking-wide uppercase leading-none"
             >
-              TRANSMISSION & DISPATCH
+              TRANSMISSION CONSOLE
             </h2>
           </div>
-          <span className="font-mono text-xs text-posterRed uppercase font-bold tracking-wider">
-            DIRECT COMMUNICATION CHANNEL
+          <span className="font-mono text-xs text-posterRed uppercase font-bold tracking-widest">
+            [OPEN CHANNELS & DIRECT INQUIRY]
           </span>
         </div>
 
-        {/* 2-Column Contact Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Left Column: Direct Inquiries & Channels */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-            <div className="poster-card p-6 sm:p-8 bg-white border-[1.5px] border-ink">
-              <span
-                className="font-mono text-xs font-bold text-posterRed uppercase
-                  tracking-wider block mb-2"
-              >
-                LET'S BUILD SOMETHING RELIABLE
-              </span>
-              <h3
-                className="font-mono font-bold text-2xl text-ink uppercase tracking-tight
-                  leading-snug"
-              >
-                Initiate a project or explore engineering roles.
-              </h3>
-              <p className="mt-3 text-xs sm:text-sm text-ink/80 leading-relaxed font-normal">
-                Whether you need full-stack architecture, institutional ERP scaling, or
-                cross-platform mobile engineering, I'm ready to collaborate.
+        {/* 2-Column Broadside Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Direct Channels & Interactive Mascot */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="poster-card p-6 sm:p-7 bg-[#ede8e0] relative">
+              <CornerTicks />
+
+              <div className="flex items-start justify-between gap-4 pb-4 border-b-2 border-ink mb-4">
+                <div>
+                  <span className="font-mono text-[10px] bg-posterRed text-paper px-2 py-0.5 font-bold uppercase tracking-wider">
+                    DIRECT DISPATCH
+                  </span>
+                  <h3 className="font-poster text-2xl sm:text-3xl text-ink uppercase tracking-wide leading-none mt-1">
+                    START A CONVERSATION
+                  </h3>
+                </div>
+                <PosterStamp
+                  text="AVAILABLE FOR DISPATCH • 2026"
+                  subtext="STATUS"
+                  year="OPEN"
+                  size={76}
+                />
+              </div>
+
+              <p className="text-xs font-mono text-ink/80 leading-relaxed mb-6">
+                Whether you need a scalable full-stack web application, high-throughput backend
+                APIs, or a cross-platform mobile app in React Native, reach out below.
               </p>
 
-              {/* Quick Channels */}
-              <div className="mt-6 space-y-3">
-                <div className="p-3 bg-paper border border-ink flex items-center justify-between">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <Mail className="w-4 h-4 text-posterRed shrink-0" />
+              {/* Direct Buttons */}
+              <div className="space-y-3 font-mono text-xs">
+                {/* Email with copy */}
+                <div className="p-3 bg-white border-2 border-ink shadow-[2px_2px_0_#141414]">
+                  <div className="flex items-center gap-1.5 text-[10px] text-ink/60 font-bold uppercase mb-1">
+                    <Mail className="w-3.5 h-3.5 text-posterRed" />
+                    <span>PRIMARY INBOX</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-2">
                     <a
                       href="mailto:karthikmudappilakkil@gmail.com"
-                      className="text-xs font-mono font-bold text-ink hover:text-posterRed
-                        transition-colors truncate"
+                      className="text-ink font-bold hover:text-posterRed truncate"
                     >
                       karthikmudappilakkil@gmail.com
                     </a>
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
+                      className="p-1.5 bg-paper hover:bg-posterRed hover:text-paper border border-ink text-ink transition-colors shrink-0"
+                      title="Copy email to clipboard"
+                    >
+                      {copied ? (
+                        <Check className="w-3.5 h-3.5 text-green-600" />
+                      ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                      )}
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    onClick={handleCopyEmail}
-                    className="p-1.5 hover:bg-paperDark text-ink/70 hover:text-ink
-                      transition-colors"
-                    aria-label="Copy email address"
-                  >
-                    {copied ? (
-                      <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    ) : (
-                      <Copy className="w-3.5 h-3.5" />
-                    )}
-                  </button>
                 </div>
 
-                <div className="p-3 bg-paper border border-ink flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-posterRed shrink-0" />
+                {/* Phone */}
+                <div className="p-3 bg-white border-2 border-ink shadow-[2px_2px_0_#141414]">
+                  <div className="text-[10px] text-ink/60 font-bold uppercase mb-1">
+                    TELEPHONE / VOICE
+                  </div>
                   <a
                     href="tel:+919995678189"
-                    className="text-xs font-mono font-bold text-ink hover:text-posterRed
-                      transition-colors"
+                    className="text-ink font-bold hover:text-posterRed flex items-center gap-2"
                   >
-                    +91 9995678189
+                    <Phone className="w-3.5 h-3.5 text-posterRed" />
+                    <span>+91 9995678189</span>
+                  </a>
+                </div>
+
+                {/* Social Channels */}
+                <div className="grid grid-cols-2 gap-3 pt-1">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="poster-btn-secondary py-2 text-xs flex items-center justify-center gap-1.5"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                    <span>GITHUB</span>
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="poster-btn-secondary py-2 text-xs flex items-center justify-center gap-1.5"
+                  >
+                    <LinkedinIcon className="w-4 h-4" />
+                    <span>LINKEDIN</span>
                   </a>
                 </div>
               </div>
 
-              {/* Social Channels */}
-              <div className="mt-6 pt-5 border-t-[1.5px] border-ink flex items-center gap-3">
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="poster-btn-secondary py-2 px-3.5 text-xs flex items-center gap-2"
-                  aria-label="GitHub Profile"
-                >
-                  <GithubIcon className="w-4 h-4" />
-                  <span>GITHUB</span>
-                </a>
-
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="poster-btn-secondary py-2 px-3.5 text-xs flex items-center gap-2"
-                  aria-label="LinkedIn Profile"
-                >
-                  <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
-                  <span>LINKEDIN</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Interactive Transmission Dice Box */}
-            <div
-              className="poster-card p-5 bg-paperDark border-[1.5px] border-ink
-                flex items-center justify-between"
-            >
-              <div>
-                <div className="font-mono text-xs font-bold uppercase text-ink">
-                  LUCKY TRANSMISSION KEY:
+              {/* Hand-inked mascot cameo */}
+              <div className="mt-6 pt-5 border-t-2 border-ink flex items-center justify-between">
+                <div>
+                  <div className="font-mono text-xs font-bold text-ink uppercase">
+                    KARTHIK M P
+                  </div>
+                  <div className="font-mono text-[10px] text-posterRed font-bold">
+                    KERALA, INDIA // UTC+5:30
+                  </div>
                 </div>
-                <div className="font-mono text-xs text-posterRed font-bold mt-0.5">
-                  CURRENT VALUE: PIP [{diceRoll}]
-                </div>
+                <MiniWavingCharacter message="LET'S BUILD SOMETHING GREAT!" size={105} />
               </div>
-              <button
-                type="button"
-                onClick={rollTransmissionDice}
-                className="poster-btn-primary px-3 py-1.5 text-xs font-bold"
-              >
-                ROLL DICE
-              </button>
             </div>
           </div>
 
-          {/* Right Column: Functional Contact Form */}
+          {/* Right Column: Transmission Console Form */}
           <div className="lg:col-span-7">
-            <div className="poster-card p-6 sm:p-8 bg-white border-[1.5px] border-ink">
-              <div
-                className="flex items-center justify-between pb-4 border-b-[1.5px]
-                  border-ink mb-6"
-              >
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-ink">
-                  DISPATCH CONSOLE
-                </span>
-                <span className="font-mono text-xs text-posterRed font-bold">
-                  [ READY ]
-                </span>
+            <div className="poster-card p-6 sm:p-8 bg-white relative">
+              <CornerTicks />
+              <div className="absolute top-4 right-4">
+                <CornerDice initialValue={6} size={36} />
+              </div>
+
+              <div className="pb-4 border-b-2 border-ink mb-6">
+                <div className="font-mono text-[10px] text-posterRed font-bold uppercase tracking-wider mb-1">
+                  SECURE TELEGRAPH
+                </div>
+                <h3 className="font-poster text-3xl sm:text-4xl text-ink uppercase tracking-wide leading-none">
+                  TRANSMIT A MESSAGE
+                </h3>
               </div>
 
               {submitted ? (
-                <div className="p-8 bg-paper border-[1.5px] border-ink text-center space-y-4">
-                  <div
-                    className="w-12 h-12 bg-posterRed text-paper border border-ink mx-auto
-                      flex items-center justify-center font-mono font-bold text-xl"
-                  >
+                <div className="p-6 bg-paperDark border-2 border-ink text-center space-y-3">
+                  <div className="w-10 h-10 mx-auto bg-posterRed text-paper border-2 border-ink flex items-center justify-center font-bold">
                     ✓
                   </div>
-                  <h4 className="font-mono font-bold text-xl text-ink uppercase">
-                    TRANSMISSION RECORDED
-                  </h4>
-                  <p className="text-xs sm:text-sm text-ink/80 max-w-md mx-auto leading-relaxed">
-                    Thank you, {formData.name}. Your message has been dispatched to Karthik.
-                    Expect an electronic response within 24 hours.
+                  <div className="font-poster text-3xl text-ink uppercase tracking-wide">
+                    TRANSMISSION RECEIVED
+                  </div>
+                  <p className="text-xs font-mono text-ink/80 max-w-md mx-auto">
+                    Thank you, {formData.name}. Your message has been logged into the terminal.
+                    I will respond via {formData.email} promptly.
                   </p>
                   <button
                     type="button"
@@ -281,7 +280,7 @@ export function ContactSection() {
                         message: "",
                       });
                     }}
-                    className="poster-btn-secondary text-xs px-4 py-2 mt-4"
+                    className="poster-btn-secondary text-xs mt-3"
                   >
                     SEND ANOTHER TRANSMISSION
                   </button>
@@ -290,10 +289,7 @@ export function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label
-                        className="block font-mono text-xs font-bold uppercase
-                          text-ink mb-1.5"
-                      >
+                      <label className="block text-xs font-mono font-bold text-ink uppercase mb-1">
                         YOUR NAME *
                       </label>
                       <input
@@ -303,18 +299,15 @@ export function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        placeholder="e.g. Jane Doe"
-                        className="w-full p-2.5 bg-paper border border-ink text-xs font-mono
-                          text-ink focus:outline-none focus:border-posterRed"
+                        placeholder="e.g. Sarah Connor"
+                        className="w-full bg-paper border-2 border-ink px-3 py-2 text-xs font-mono
+                          text-ink focus:outline-none focus:bg-white focus:border-posterRed"
                       />
                     </div>
 
                     <div>
-                      <label
-                        className="block font-mono text-xs font-bold uppercase
-                          text-ink mb-1.5"
-                      >
-                        EMAIL ADDRESS *
+                      <label className="block text-xs font-mono font-bold text-ink uppercase mb-1">
+                        YOUR EMAIL *
                       </label>
                       <input
                         type="email"
@@ -323,60 +316,58 @@ export function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        placeholder="e.g. jane@company.com"
-                        className="w-full p-2.5 bg-paper border border-ink text-xs font-mono
-                          text-ink focus:outline-none focus:border-posterRed"
+                        placeholder="name@company.com"
+                        className="w-full bg-paper border-2 border-ink px-3 py-2 text-xs font-mono
+                          text-ink focus:outline-none focus:bg-white focus:border-posterRed"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block font-mono text-xs font-bold uppercase text-ink mb-1.5">
-                      PURPOSE OF TRANSMISSION
+                    <label className="block text-xs font-mono font-bold text-ink uppercase mb-1">
+                      TOPIC / SUBJECT
                     </label>
                     <select
                       value={formData.subject}
                       onChange={(e) =>
                         setFormData({ ...formData, subject: e.target.value })
                       }
-                      className="w-full p-2.5 bg-paper border border-ink text-xs font-mono
-                        text-ink focus:outline-none focus:border-posterRed"
+                      className="w-full bg-paper border-2 border-ink px-3 py-2 text-xs font-mono
+                        text-ink focus:outline-none focus:bg-white focus:border-posterRed"
                     >
-                      <option value="Full-Stack Project">Full-Stack Web Engineering</option>
-                      <option value="Mobile Application">React Native / Mobile App</option>
-                      <option value="ERP Consulting">College ERP / Institutional Platform</option>
-                      <option value="Career Role">Engineering Job Opportunity</option>
-                      <option value="General Inquiry">General Conversation</option>
+                      <option value="Full-Stack Project">Full-Stack Web Development</option>
+                      <option value="Mobile Application">Mobile Application (React Native)</option>
+                      <option value="API / Backend Engineering">Fastify / Node.js Backend</option>
+                      <option value="Shopify Storefront">Shopify Liquid Storefront</option>
+                      <option value="Full-Time Engineering Role">Full-Time Software Engineer Role</option>
+                      <option value="General Inquiry">General Technical Discussion</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block font-mono text-xs font-bold uppercase text-ink mb-1.5">
-                      MESSAGE CONTENT *
+                    <label className="block text-xs font-mono font-bold text-ink uppercase mb-1">
+                      PROJECT BRIEF / MESSAGE *
                     </label>
                     <textarea
                       required
-                      rows={5}
+                      rows={4}
                       value={formData.message}
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
-                      placeholder="Outline your timeline, scope, or opportunity..."
-                      className="w-full p-2.5 bg-paper border border-ink text-xs font-mono
-                        text-ink focus:outline-none focus:border-posterRed resize-none"
+                      placeholder="Share project scope, target timeline, or tech stack requirements..."
+                      className="w-full bg-paper border-2 border-ink px-3 py-2 text-xs font-mono
+                        text-ink focus:outline-none focus:bg-white focus:border-posterRed resize-none"
                     />
                   </div>
 
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      className="poster-btn-primary w-full py-3 flex items-center
-                        justify-center gap-2"
-                    >
-                      <Send className="w-4 h-4" />
-                      <span>DISPATCH TRANSMISSION</span>
-                    </button>
-                  </div>
+                  <button
+                    type="submit"
+                    className="poster-btn-primary w-full py-3 text-xs flex items-center justify-center gap-2"
+                  >
+                    <span>TRANSMIT DISPATCH NOW</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </button>
                 </form>
               )}
             </div>

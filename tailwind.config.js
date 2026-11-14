@@ -32,10 +32,10 @@ export default {
         ],
         mono: ['JetBrains Mono', 'monospace'],
         poster: [
+          '"Bebas Neue"',
+          'Impact',
           'Futura',
           'Century Gothic',
-          'Avenir Next',
-          'ui-sans-serif',
           'sans-serif',
         ],
       },

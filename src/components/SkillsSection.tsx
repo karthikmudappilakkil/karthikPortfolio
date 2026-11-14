@@ -1,19 +1,24 @@
 import { Code, Smartphone, Database, Wrench } from "lucide-react";
 import { Marquee } from "@/components/ui/marquee";
+import { CornerDice } from "@/components/ui/CornerDice";
+import { CornerCross, CornerTicks } from "@/components/ui/PosterMarks";
 
 export function SkillsSection() {
   const stackCategories = [
     {
       code: "01",
-      title: "LANGUAGES",
+      title: "LANGUAGES & RUNTIMES",
       icon: Code,
-      skills: ["JavaScript", "Python", "Dart"],
-      description: "Core syntax & runtime environments for web, mobile, and backend scripting.",
+      diceVal: 1,
+      skills: ["JavaScript", "Python", "Dart", "TypeScript"],
+      description:
+        "Core syntax & execution environments across web engines, mobile devices, and server runtimes.",
     },
     {
       code: "02",
       title: "FRONTEND & MOBILE",
       icon: Smartphone,
+      diceVal: 2,
       skills: [
         "React.js",
         "React Native",
@@ -24,30 +29,42 @@ export function SkillsSection() {
         "CSS3",
         "Angular",
       ],
-      description: "Declarative cross-platform mobile apps and responsive web interfaces.",
+      description:
+        "Declarative cross-platform native iOS & Android applications and high-fidelity web views.",
     },
     {
       code: "03",
       title: "BACKEND & DATABASES",
       icon: Database,
+      diceVal: 3,
       skills: [
         "Node.js",
-        "Express.js",
         "Fastify",
+        "Express.js",
         "Django",
         "REST APIs",
         "MongoDB",
         "MySQL",
         "SQL",
       ],
-      description: "Scalable microservices, REST endpoints, relational & document datastores.",
+      description:
+        "High-throughput microservices, REST endpoints, relational databases, and NoSQL stores.",
     },
     {
       code: "04",
-      title: "ECOMMERCE & TOOLS",
+      title: "ECOMMERCE & ECOSYSTEM",
       icon: Wrench,
-      skills: ["Shopify", "Shopify Liquid", "Git", "GitHub", "Socket.io"],
-      description: "Custom headless & Liquid themes, real-time socket events, and Git flows.",
+      diceVal: 4,
+      skills: [
+        "Shopify",
+        "Shopify Liquid",
+        "Socket.io",
+        "Git",
+        "GitHub",
+        "Agile / Scrum",
+      ],
+      description:
+        "Custom Shopify themes, bidirectional WebSocket events, and collaborative Git version control.",
     },
   ];
 
@@ -61,6 +78,7 @@ export function SkillsSection() {
     "SOCKET.IO",
     "JAVASCRIPT",
     "PYTHON",
+    "TYPESCRIPT",
   ];
 
   const marqueeBadgesRow2 = [
@@ -73,126 +91,125 @@ export function SkillsSection() {
     "ANGULAR",
     "GIT",
     "SQL",
+    "EXPRESS.JS",
   ];
 
   return (
     <section
       id="skills"
-      className="py-16 sm:py-24 border-b-[1.5px] border-ink bg-paper scroll-mt-16"
+      className="py-16 sm:py-24 border-b-2 border-ink bg-paper scroll-mt-16 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <CornerCross className="absolute -top-3 left-4 hidden sm:block" />
+        <CornerCross className="absolute -top-3 right-4 hidden sm:block" />
+
         {/* Section Header */}
         <div
           className="flex flex-col sm:flex-row sm:items-baseline justify-between
-            gap-2 pb-4 border-b-[1.5px] border-ink mb-10"
+            gap-3 pb-4 border-b-2 border-ink mb-10"
         >
           <div className="flex items-center gap-3">
             <span
-              className="font-mono text-xs font-bold bg-posterRed text-paper px-2
-                py-0.5 border border-ink"
+              className="font-mono text-xs font-bold bg-posterRed text-paper px-2.5
+                py-1 border-2 border-ink shadow-[2px_2px_0_#141414] uppercase tracking-wider"
             >
               SEC. 02
             </span>
             <h2
-              className="font-mono font-bold text-2xl sm:text-3xl text-ink
-                tracking-tight uppercase"
+              className="font-poster text-4xl sm:text-6xl text-ink
+                tracking-wide uppercase leading-none"
             >
-              SKILLS & TECHNOLOGIES
+              TECHNICAL INVENTORY
             </h2>
           </div>
-          <span className="font-mono text-xs text-posterRed uppercase font-bold tracking-wider">
-            RUNTIME ARCHITECTURE & TOOLKIT
+          <span className="font-mono text-xs text-posterRed uppercase font-bold tracking-widest">
+            [VERIFIED STACK & FRAMEWORKS]
           </span>
         </div>
 
-        {/* Paper Poster Scrolling Ticker */}
-        <div
-          className="poster-card bg-paperDark p-3 mb-10 overflow-hidden
-            border-[1.5px] border-ink"
-        >
-          <Marquee speed={24} direction="left">
-            {marqueeBadgesRow1.map((item) => (
-              <span
-                key={item}
-                className="inline-flex items-center gap-2 px-3 py-1 font-mono text-xs
-                  font-bold bg-paper text-ink border border-ink shadow-sm"
-              >
-                <span className="w-2 h-2 rounded-full bg-posterRed" />
-                {item}
-              </span>
-            ))}
-          </Marquee>
+        {/* Dual High-Contrast Poster Marquee Strips */}
+        <div className="mb-12 border-2 border-ink shadow-[4px_4px_0_#141414] overflow-hidden">
+          {/* Top Strip: Red Background with Paper Letters */}
+          <div className="bg-posterRed text-paper py-2.5 border-b-2 border-ink">
+            <Marquee className="[--duration:24s]" pauseOnHover>
+              {marqueeBadgesRow1.map((item, i) => (
+                <div key={i} className="flex items-center gap-4 mx-4">
+                  <span className="font-poster text-2xl tracking-widest uppercase font-bold">
+                    {item}
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-paper" />
+                </div>
+              ))}
+            </Marquee>
+          </div>
 
-          <Marquee speed={26} direction="right" className="pt-2">
-            {marqueeBadgesRow2.map((item) => (
-              <span
-                key={item}
-                className="inline-flex items-center gap-2 px-3 py-1 font-mono text-xs
-                  font-bold bg-paper text-ink border border-ink shadow-sm"
-              >
-                <span className="w-2 h-2 rounded-full bg-ink" />
-                {item}
-              </span>
-            ))}
-          </Marquee>
+          {/* Bottom Strip: Paper Background with Ink Letters */}
+          <div className="bg-[#ede8e0] text-ink py-2.5">
+            <Marquee direction="right" className="[--duration:24s]" pauseOnHover>
+              {marqueeBadgesRow2.map((item, i) => (
+                <div key={i} className="flex items-center gap-4 mx-4">
+                  <span className="font-poster text-2xl tracking-widest uppercase font-bold text-ink">
+                    {item}
+                  </span>
+                  <span className="w-2 h-2 rounded-none bg-posterRed rotate-45" />
+                </div>
+              ))}
+            </Marquee>
+          </div>
         </div>
 
-        {/* 4 Categorized Stack Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {stackCategories.map((category) => {
-            const CategoryIcon = category.icon;
+        {/* 4 Categorized Specimen Drawer Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {stackCategories.map((cat) => {
+            const Icon = cat.icon;
             return (
               <div
-                key={category.code}
-                className="poster-card p-6 bg-white border-[1.5px] border-ink flex
-                  flex-col justify-between group hover:border-posterRed transition-colors"
+                key={cat.code}
+                className="poster-card p-6 sm:p-7 bg-white relative group"
               >
-                <div>
-                  <div
-                    className="flex items-center justify-between pb-3
-                      border-b-[1.5px] border-ink"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <div
-                        className="w-7 h-7 bg-paper border border-ink text-posterRed
-                          flex items-center justify-center font-mono font-bold text-xs"
-                      >
-                        {category.code}
-                      </div>
-                      <h3 className="font-mono font-bold text-base text-ink tracking-tight">
-                        {category.title}
+                <CornerTicks />
+
+                {/* Card Header */}
+                <div className="flex items-start justify-between gap-4 pb-4 border-b-2 border-ink mb-4">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-10 h-10 bg-paper border-2 border-ink shadow-[2px_2px_0_#141414]
+                        flex items-center justify-center text-ink group-hover:bg-posterRed
+                        group-hover:text-paper transition-colors"
+                    >
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="font-mono text-[10px] text-posterRed font-bold tracking-widest uppercase">
+                        DRAWER // {cat.code}
+                      </span>
+                      <h3 className="font-poster text-2xl sm:text-3xl text-ink uppercase tracking-wide leading-none mt-0.5">
+                        {cat.title}
                       </h3>
                     </div>
-                    <CategoryIcon
-                      className="w-4 h-4 text-posterRed group-hover:rotate-12
-                        transition-transform"
-                    />
                   </div>
 
-                  <p className="mt-3 text-xs text-ink/70 leading-relaxed font-normal">
-                    {category.description}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2.5 py-1 text-xs font-mono font-semibold bg-paper text-ink
-                          border border-ink/60 hover:bg-posterRed hover:text-paper
-                          hover:border-ink transition-colors cursor-default"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                  {/* Corner interactive dice */}
+                  <CornerDice initialValue={cat.diceVal} size={34} />
                 </div>
 
-                <div
-                  className="mt-5 pt-3 border-t border-ink/20 flex items-center
-                    justify-between text-[11px] font-mono text-ink/60"
-                >
-                  <span>PRODUCTION TESTED</span>
-                  <span className="font-bold text-posterRed">ACTIVE</span>
+                <p className="text-xs font-mono text-ink/80 mb-5 leading-relaxed">
+                  {cat.description}
+                </p>
+
+                {/* Skill Pills */}
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono
+                        font-bold text-ink bg-paperDark border border-ink/80 shadow-[1px_1px_0_#141414]
+                        hover:bg-posterRed hover:text-paper hover:border-ink transition-colors cursor-default"
+                    >
+                      <span className="w-1 h-1 rounded-full bg-posterRed group-hover:bg-paper" />
+                      <span>{skill}</span>
+                    </span>
+                  ))}
                 </div>
               </div>
             );

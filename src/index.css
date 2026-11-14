@@ -26,24 +26,24 @@
 @layer components {
   .poster-card {
     background-color: #f6f4f0;
-    border: 1.5px solid #141414;
-    box-shadow: 0 2px 0 #141414;
+    border: 2px solid #141414;
+    box-shadow: 3px 3px 0 #141414;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .poster-card:hover {
-    box-shadow: 4px 4px 0 #141414;
+    box-shadow: 5px 5px 0 #141414;
   }
 
   .poster-card-white {
     background-color: #ffffff;
-    border: 1.5px solid #141414;
-    box-shadow: 0 2px 0 #141414;
+    border: 2px solid #141414;
+    box-shadow: 3px 3px 0 #141414;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .poster-card-white:hover {
-    box-shadow: 4px 4px 0 #141414;
+    box-shadow: 5px 5px 0 #141414;
   }
 
   .poster-pill {
@@ -55,9 +55,9 @@
     font-family: 'JetBrains Mono', monospace;
     color: #141414;
     background-color: #ede8e0;
-    border: 1px solid rgba(20, 20, 20, 0.7);
-    border-radius: 9999px;
-    transition: background-color 0.15s ease;
+    border: 1.5px solid #141414;
+    box-shadow: 1px 1px 0 #141414;
+    transition: all 0.15s ease;
   }
 
   .poster-btn-primary {
@@ -72,8 +72,8 @@
     font-weight: 700;
     background-color: #e5262c;
     color: #f6f4f0;
-    border: 1.5px solid #141414;
-    box-shadow: 0 2px 0 #141414;
+    border: 2px solid #141414;
+    box-shadow: 3px 3px 0 #141414;
     padding: 0.625rem 1rem;
     min-height: 44px;
     min-width: 44px;
@@ -83,11 +83,12 @@
 
   .poster-btn-primary:hover {
     background-color: #c81e24;
-    box-shadow: 4px 4px 0 #141414;
+    box-shadow: 5px 5px 0 #141414;
   }
 
   .poster-btn-primary:active {
-    transform: translate(1px, 1px);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #141414;
   }
 
   .poster-btn-secondary {
@@ -102,8 +103,8 @@
     font-weight: 700;
     background-color: #f6f4f0;
     color: #141414;
-    border: 1.5px solid #141414;
-    box-shadow: 0 2px 0 #141414;
+    border: 2px solid #141414;
+    box-shadow: 3px 3px 0 #141414;
     padding: 0.625rem 1rem;
     min-height: 44px;
     min-width: 44px;
@@ -113,10 +114,11 @@
 
   .poster-btn-secondary:hover {
     background-color: #ede8e0;
-    box-shadow: 4px 4px 0 #141414;
+    box-shadow: 5px 5px 0 #141414;
   }
 
   .poster-btn-secondary:active {
-    transform: translate(1px, 1px);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #141414;
   }
 }
