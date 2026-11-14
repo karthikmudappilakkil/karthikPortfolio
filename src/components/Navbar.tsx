@@ -5,46 +5,53 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Stack", href: "#stack" },
-    { label: "Education", href: "#education" },
+    { label: "01. ABOUT", href: "#about" },
+    { label: "02. STACK", href: "#skills" },
+    { label: "03. WORKS", href: "#projects" },
+    { label: "04. RECORD", href: "#experience" },
+    { label: "05. CONTACT", href: "#contact" },
   ];
 
   return (
-    <header className="sticky top-4 z-50 w-full px-4 sm:px-6 pointer-events-none">
-      <div className="max-w-4xl mx-auto flex items-center justify-between">
-        {/* Floating Pill Bar */}
-        <div
-          className="pointer-events-auto w-full flex items-center justify-between
-            px-3.5 py-2 rounded-full border border-zinc-200/90 bg-white/85
-            backdrop-blur-md shadow-card transition-all duration-200 hover:border-zinc-300"
-        >
-          {/* Brand Logo */}
+    <header
+      className="sticky top-0 z-50 w-full bg-paper/95 backdrop-blur-md
+        border-b-[1.5px] border-ink"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="py-3 flex items-center justify-between">
+          {/* Logo / Monogram */}
           <a
             href="#"
-            className="flex items-center gap-2.5 pl-1.5 group focus:outline-none"
+            className="flex items-center gap-3 group focus:outline-none"
           >
             <div
-              className="w-7 h-7 rounded-full bg-zinc-950 text-white
-                flex items-center justify-center font-mono font-semibold text-xs
-                group-hover:bg-accent transition-colors"
+              className="w-8 h-8 bg-posterRed text-paper border-[1.5px] border-ink
+                flex items-center justify-center font-mono font-bold text-sm shadow-poster
+                group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"
             >
               K
             </div>
-            <span className="font-mono font-medium text-sm text-zinc-950 tracking-tight">
-              karthik<span className="text-accent font-semibold">.dev</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="font-mono font-bold text-sm text-ink tracking-tight">
+                KARTHIK M P
+              </span>
+              <span
+                className="font-mono text-[10px] text-posterRed uppercase
+                  tracking-wider font-semibold"
+              >
+                FULL STACK & MOBILE
+              </span>
+            </div>
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-3 py-1.5 rounded-full text-xs font-medium text-zinc-600
-                  hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
+                className="text-xs font-mono font-bold text-ink/80 hover:text-posterRed
+                  transition-colors tracking-wider"
               >
                 {link.label}
               </a>
@@ -52,71 +59,61 @@ export function Navbar() {
           </nav>
 
           {/* Action CTA */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full
-                text-xs font-medium bg-zinc-950 text-white hover:bg-zinc-800
-                transition-all min-h-[36px] shadow-sm"
+              className="poster-btn-primary py-2 px-3.5 text-xs flex items-center gap-1.5"
             >
-              <span>Get in Touch</span>
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-80" />
+              <span>DISPATCH</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          {/* Mobile Menu Trigger */}
+          {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden inline-flex items-center justify-center p-2
-              rounded-full text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100
-              min-h-[44px] min-w-[44px]"
-            aria-label="Toggle menu"
+            className="md:hidden poster-btn-secondary p-2 min-h-[44px] min-w-[44px]"
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? (
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5 text-ink" />
             ) : (
-              <Menu className="w-4 h-4" />
+              <Menu className="w-5 h-5 text-ink" />
             )}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="pointer-events-auto md:hidden mt-2 max-w-sm mx-auto">
-          <div
-            className="rounded-2xl border border-zinc-200 bg-white/95
-              backdrop-blur-md p-4 shadow-elevated space-y-3"
-          >
-            <nav className="flex flex-col space-y-1">
+        {/* Mobile Dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden py-4 border-t-[1.5px] border-ink bg-paper space-y-3">
+            <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3.5 py-2.5 rounded-xl text-sm font-medium text-zinc-700
-                    hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
+                  className="px-3 py-2 text-sm font-mono font-bold text-ink
+                    hover:bg-paperDark hover:text-posterRed transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
             </nav>
-            <div className="pt-2 border-t border-zinc-100">
+            <div className="pt-2 border-t-[1.5px] border-ink/30 px-3">
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-1.5
-                  py-2.5 rounded-xl text-xs font-semibold bg-zinc-950 text-white
-                  hover:bg-zinc-800 transition-colors min-h-[44px]"
+                className="poster-btn-primary w-full text-xs py-2.5 flex items-center
+                  justify-center gap-1.5"
               >
-                <span>Get in Touch</span>
+                <span>SEND TRANSMISSION</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 }

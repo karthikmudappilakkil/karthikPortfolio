@@ -4,94 +4,115 @@
 
 @layer base {
   * {
-    border-color: #E4E4E7;
+    border-color: #141414;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #f6f4f0;
+    color: #141414;
   }
 
   body {
-    background-color: #FFFFFF;
-    color: #09090B;
+    background-color: #f6f4f0;
+    color: #141414;
     overflow-x: hidden;
   }
 }
 
-/* Linear / Vercel Precision Minimalist Classes */
+/* Waving Poster Editorial Aesthetic */
 @layer components {
-  .minimal-card {
-    @apply bg-white
-      border
-      border-zinc-200
-      rounded-2xl
-      shadow-card
+  .poster-card {
+    @apply bg-paper
+      border-[1.5px]
+      border-ink
+      shadow-poster
       transition-all
       duration-200
-      hover:border-zinc-300
-      hover:shadow-card-hover;
+      hover:shadow-poster-lg;
   }
 
-  .minimal-pill {
+  .poster-card-white {
+    @apply bg-white
+      border-[1.5px]
+      border-ink
+      shadow-poster
+      transition-all
+      duration-200
+      hover:shadow-poster-lg;
+  }
+
+  .poster-pill {
     @apply inline-flex
       items-center
       gap-1.5
-      px-2.5
+      px-3
       py-1
       text-xs
       font-mono
-      text-zinc-600
-      bg-zinc-50
+      text-ink
+      bg-paperDark
       border
-      border-zinc-200
+      border-ink/70
       rounded-full
       transition-colors;
   }
 
-  .minimal-btn-primary {
+  .poster-btn-primary {
     @apply inline-flex
       items-center
       justify-center
       gap-2
-      font-medium
-      text-sm
-      bg-zinc-950
-      text-white
-      rounded-full
+      font-mono
+      text-xs
+      uppercase
+      tracking-wider
+      font-bold
+      bg-posterRed
+      text-paper
+      border-[1.5px]
+      border-ink
+      shadow-poster
+      rounded-none
       px-4
       py-2.5
       min-h-[44px]
       min-w-[44px]
-      shadow-sm
       transition-all
       duration-150
-      hover:bg-zinc-800
-      active:scale-[0.98];
+      hover:bg-posterRed-hover
+      hover:shadow-poster-lg
+      active:translate-x-[1px]
+      active:translate-y-[1px];
   }
 
-  .minimal-btn-secondary {
+  .poster-btn-secondary {
     @apply inline-flex
       items-center
       justify-center
       gap-2
-      font-medium
-      text-sm
-      bg-white
-      text-zinc-800
-      border
-      border-zinc-200
-      rounded-full
+      font-mono
+      text-xs
+      uppercase
+      tracking-wider
+      font-bold
+      bg-paper
+      text-ink
+      border-[1.5px]
+      border-ink
+      shadow-poster
+      rounded-none
       px-4
       py-2.5
       min-h-[44px]
       min-w-[44px]
-      shadow-subtle
       transition-all
       duration-150
-      hover:bg-zinc-50
-      hover:border-zinc-300
-      active:scale-[0.98];
+      hover:bg-paperDark
+      hover:shadow-poster-lg
+      active:translate-x-[1px]
+      active:translate-y-[1px];
   }
 }
