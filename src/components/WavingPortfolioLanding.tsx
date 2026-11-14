@@ -1600,3 +1600,4 @@ const WPL_CSS = `
 .wpl-root *,.wpl-root *::before,.wpl-root *::after{animation:none!important;transition:none!important}
 }
 `;
+

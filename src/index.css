@@ -25,94 +25,98 @@
 /* Waving Poster Editorial Aesthetic */
 @layer components {
   .poster-card {
-    @apply bg-paper
-      border-[1.5px]
-      border-ink
-      shadow-poster
-      transition-all
-      duration-200
-      hover:shadow-poster-lg;
+    background-color: #f6f4f0;
+    border: 1.5px solid #141414;
+    box-shadow: 0 2px 0 #141414;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .poster-card:hover {
+    box-shadow: 4px 4px 0 #141414;
   }
 
   .poster-card-white {
-    @apply bg-white
-      border-[1.5px]
-      border-ink
-      shadow-poster
-      transition-all
-      duration-200
-      hover:shadow-poster-lg;
+    background-color: #ffffff;
+    border: 1.5px solid #141414;
+    box-shadow: 0 2px 0 #141414;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .poster-card-white:hover {
+    box-shadow: 4px 4px 0 #141414;
   }
 
   .poster-pill {
-    @apply inline-flex
-      items-center
-      gap-1.5
-      px-3
-      py-1
-      text-xs
-      font-mono
-      text-ink
-      bg-paperDark
-      border
-      border-ink/70
-      rounded-full
-      transition-colors;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: #141414;
+    background-color: #ede8e0;
+    border: 1px solid rgba(20, 20, 20, 0.7);
+    border-radius: 9999px;
+    transition: background-color 0.15s ease;
   }
 
   .poster-btn-primary {
-    @apply inline-flex
-      items-center
-      justify-center
-      gap-2
-      font-mono
-      text-xs
-      uppercase
-      tracking-wider
-      font-bold
-      bg-posterRed
-      text-paper
-      border-[1.5px]
-      border-ink
-      shadow-poster
-      rounded-none
-      px-4
-      py-2.5
-      min-h-[44px]
-      min-w-[44px]
-      transition-all
-      duration-150
-      hover:bg-posterRed-hover
-      hover:shadow-poster-lg
-      active:translate-x-[1px]
-      active:translate-y-[1px];
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    background-color: #e5262c;
+    color: #f6f4f0;
+    border: 1.5px solid #141414;
+    box-shadow: 0 2px 0 #141414;
+    padding: 0.625rem 1rem;
+    min-height: 44px;
+    min-width: 44px;
+    transition: all 0.15s ease;
+    user-select: none;
+  }
+
+  .poster-btn-primary:hover {
+    background-color: #c81e24;
+    box-shadow: 4px 4px 0 #141414;
+  }
+
+  .poster-btn-primary:active {
+    transform: translate(1px, 1px);
   }
 
   .poster-btn-secondary {
-    @apply inline-flex
-      items-center
-      justify-center
-      gap-2
-      font-mono
-      text-xs
-      uppercase
-      tracking-wider
-      font-bold
-      bg-paper
-      text-ink
-      border-[1.5px]
-      border-ink
-      shadow-poster
-      rounded-none
-      px-4
-      py-2.5
-      min-h-[44px]
-      min-w-[44px]
-      transition-all
-      duration-150
-      hover:bg-paperDark
-      hover:shadow-poster-lg
-      active:translate-x-[1px]
-      active:translate-y-[1px];
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    background-color: #f6f4f0;
+    color: #141414;
+    border: 1.5px solid #141414;
+    box-shadow: 0 2px 0 #141414;
+    padding: 0.625rem 1rem;
+    min-height: 44px;
+    min-width: 44px;
+    transition: all 0.15s ease;
+    user-select: none;
+  }
+
+  .poster-btn-secondary:hover {
+    background-color: #ede8e0;
+    box-shadow: 4px 4px 0 #141414;
+  }
+
+  .poster-btn-secondary:active {
+    transform: translate(1px, 1px);
   }
 }
