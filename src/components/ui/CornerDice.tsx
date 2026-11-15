@@ -98,15 +98,14 @@ export function CornerDice({
           </>
         )}
 
-        {/* Outer Dice Box with offset shadow */}
+        {/* Outer Dice Box with crisp hard offset shadow */}
         <rect
-          x="12"
-          y="12"
+          x="13"
+          y="13"
           width="76"
           height="76"
           rx="6"
           fill="#141414"
-          className="translate-x-[2px] translate-y-[2px]"
         />
         <rect
           x="10"
@@ -116,21 +115,26 @@ export function CornerDice({
           rx="6"
           fill={color}
           stroke="#141414"
-          strokeWidth="2"
+          strokeWidth="2.5"
         />
 
-        {/* Pips with roll animation */}
+        {/* Pips strictly centered at (48, 48) - safe rotation without escaping dice */}
         <g
-          className={`transition-transform duration-300 origin-center ${
-            spinning ? "rotate-[360deg] scale-75" : "group-hover:rotate-6"
+          className={`transition-transform duration-300 ${
+            spinning ? "rotate-[360deg] scale-95" : "group-hover:-rotate-12"
           }`}
-          transform="translate(48, 48)"
+          style={{
+            transformBox: "fill-box",
+            transformOrigin: "48px 48px",
+          }}
         >
+          {/* Reference bounding box ensuring fill-box center is precisely (48, 48) */}
+          <rect x="10" y="10" width="76" height="76" fill="none" />
           {pips.map(([px, py], i) => (
             <circle
               key={i}
-              cx={px * 20}
-              cy={py * 20}
+              cx={48 + px * 18}
+              cy={48 + py * 18}
               r="6"
               fill={pipColor}
             />

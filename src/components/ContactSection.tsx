@@ -196,7 +196,7 @@ export function ContactSection() {
                 {/* Social Channels */}
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <a
-                    href="https://github.com"
+                    href="https://github.com/karthikmudappilakkil"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="poster-btn-secondary py-2 text-xs flex items-center justify-center gap-1.5"
