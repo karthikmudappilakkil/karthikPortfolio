@@ -58,7 +58,7 @@ export function FooterSection() {
             </a>
             <span className="text-ink/30">•</span>
             <a
-              href="https://github.com"
+              href="https://github.com/karthikmudappilakkil"
               target="_blank"
               rel="noopener noreferrer"
               className="text-ink hover:text-posterRed transition-colors"
